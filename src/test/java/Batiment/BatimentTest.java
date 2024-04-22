@@ -174,6 +174,24 @@ public class BatimentTest {
 
     }
 
+    @Test //test 11 : 1 badge sans porteur n'ouvre pas porte
+    public void casBadgeAvecPorteur() {
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur();
+
+        MoteurOuverture moteur = new MoteurOuverture();
+        moteur.associer(porte, lecteur);
+        badge.setPersonne(personne);
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porte.ouvertureDemande());
+
+    }
 
 
-}
+
+
+
+    }

@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 10: badge sans porteur devient non valide">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Batiment/Porteur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
@@ -56,7 +54,7 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeSansPorteur">
+  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeAvecPorteur">
     <configuration name="BatimentTest.cas2Badges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
@@ -89,7 +87,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casBadgeBloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casBadgeAvecPorteur" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
         <pattern>
@@ -99,7 +97,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Batiment" />
       <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casBadgeBloque" />
+      <option name="METHOD_NAME" value="casBadgeAvecPorteur" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,11 +137,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casBadgeAvecPorteur" />
         <item itemvalue="JUnit.BatimentTest.casBadgeSansPorteur" />
         <item itemvalue="JUnit.BatimentTest.cas2Badges" />
         <item itemvalue="JUnit.BatimentTest.cas2BadgesAutre" />
         <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeBloque (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -261,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713792968010</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="test 10: badge sans porteur devient non valide">
+      <created>1713796257010</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713796257011</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
