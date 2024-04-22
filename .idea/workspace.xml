@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 4: 2 portes et 2 lecteurs ne passe pas sans modifs des classes existantes">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs">
+  <component name="RunManager" selected="JUnit.BatimentTest.casNominal">
     <configuration name="BatimentTest.cas2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
@@ -87,12 +87,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BatimentTest.casPasdeSimulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
+      <option name="METHOD_NAME" value="casPasdeSimulation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
-        <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
-        <item itemvalue="JUnit.BatimentTest.cas2" />
         <item itemvalue="JUnit.BatimentTest.casNominal" />
+        <item itemvalue="JUnit.BatimentTest.casPasdeSimulation" />
+        <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
+        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
+        <item itemvalue="JUnit.BatimentTest.cas2" />
       </list>
     </recent_temporary>
   </component>
@@ -119,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713771890858</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés">
+      <created>1713773263627</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713773263629</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +159,7 @@
     <MESSAGE value="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas" />
     <MESSAGE value="test 3: pas d'interrogation de la part du moteur, donc pas d'ouverture" />
     <MESSAGE value="test 4: 2 portes et 2 lecteurs ne passe pas sans modifs des classes existantes" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 4: 2 portes et 2 lecteurs ne passe pas sans modifs des classes existantes" />
+    <MESSAGE value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
+    <option name="LAST_COMMIT_MESSAGE" value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
   </component>
 </project>

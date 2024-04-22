@@ -39,7 +39,7 @@ public class BatimentTest {
         assertFalse(porte.ouvertureDemande());
     }
 
-    @Test
+    @Test //test 4
     public void casDeuxPortesDeuxLecteurs(){
         var porteDevantOuvrir = new PorteSpy();
         var porteResteFermee = new PorteSpy();
@@ -54,7 +54,7 @@ public class BatimentTest {
 
         moteur.interroger();
         assertTrue(porteDevantOuvrir.ouvertureDemande());
-        assertTrue(porteResteFermee.ouvertureDemande());
+        assertFalse(porteResteFermee.ouvertureDemande());
     }
 
 
