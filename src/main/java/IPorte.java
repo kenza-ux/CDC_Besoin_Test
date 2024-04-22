@@ -1,3 +1,4 @@
 public interface IPorte {
-    void ouvrir();
+    boolean ouvrir();
+
 }

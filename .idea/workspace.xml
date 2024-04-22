@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ILecteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/IPorte.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/LecteurFake.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/PorteSpy.java" afterDir="false" />
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas">
+      <change afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ILecteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ILecteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IPorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IPorte.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LecteurFake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LecteurFake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PorteSpy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PorteSpy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" afterDir="false" />
     </list>
@@ -51,6 +50,34 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
+  <component name="RunManager" selected="JUnit.BatimentTest.cas2">
+    <configuration name="BatimentTest.cas2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
+      <option name="METHOD_NAME" value="cas2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BatimentTest.casNominal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
+      <option name="METHOD_NAME" value="casNominal" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.BatimentTest.cas2" />
+        <item itemvalue="JUnit.BatimentTest.casNominal" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -60,6 +87,14 @@
       <option name="presentableId" value="Default" />
       <updated>1713532822941</updated>
     </task>
+    <task id="LOCAL-00001" summary="mettre en place un premier use case simple avec la porte spy">
+      <created>1713538495608</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713538495609</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -72,5 +107,13 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="mettre en place un premier use case simple avec la porte spy" />
+    <MESSAGE value="essai avec premier test qui passe (cas non représentatif) avec les méthodes qui sont quasi vides" />
+    <MESSAGE value="test avec association de porte et lecteur et ouverture de porte par simple interrogation qui contient ouvrirporte (passer le boolean de false à true)" />
+    <MESSAGE value="premier test correct qui contient les vrais méthodes remplies" />
+    <MESSAGE value="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas" />
   </component>
 </project>

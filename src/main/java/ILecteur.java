@@ -1,3 +1,4 @@
 public interface ILecteur {
-    boolean simulerDetectBadge();
+
+    boolean badgeDétécté();
 }
