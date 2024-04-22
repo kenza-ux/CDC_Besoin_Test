@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 8 modifié: ajouter porteur au 2 badges utilisés">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="tous les tests avec la feature 1 badge est invalide sans porteur passent">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -300,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713800290396</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="tous les tests avec la feature 1 badge est invalide sans porteur passent">
+      <created>1713800455662</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1713800455664</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,7 +323,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test avec association de porte et lecteur et ouverture de porte par simple interrogation qui contient ouvrirporte (passer le boolean de false à true)" />
     <MESSAGE value="premier test correct qui contient les vrais méthodes remplies" />
     <MESSAGE value="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas" />
     <MESSAGE value="test 3: pas d'interrogation de la part du moteur, donc pas d'ouverture" />
@@ -340,6 +347,7 @@
     <MESSAGE value="test inversé de cas 2 portes 2 lecteurs supprimé car on a modifié et ça ressemble énormément au test précedant existant" />
     <MESSAGE value="test 5 modifié: 2 lecteurs 1 porte" />
     <MESSAGE value="test 8 modifié: ajouter porteur au 2 badges utilisés" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 8 modifié: ajouter porteur au 2 badges utilisés" />
+    <MESSAGE value="tous les tests avec la feature 1 badge est invalide sans porteur passent" />
+    <option name="LAST_COMMIT_MESSAGE" value="tous les tests avec la feature 1 badge est invalide sans porteur passent" />
   </component>
 </project>

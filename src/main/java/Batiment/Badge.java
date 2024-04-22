@@ -19,8 +19,11 @@ public class Badge {
     public Porteur getPersonne() {
         return personne;
     }
-    public void associerPersonne(Porteur personne) {
+    public void associer(Porteur personne) {
         this.personne = personne;
+    }
+    public void dissocier(){
+        this.personne=null;
     }
 
 

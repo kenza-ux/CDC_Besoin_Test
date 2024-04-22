@@ -20,7 +20,7 @@ public class BatimentTest {
         //lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
-        badge.associerPersonne(personne);
+        badge.associer(personne);
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
@@ -45,7 +45,7 @@ public class BatimentTest {
         Porteur personne = new Porteur("acha","adam");
         var badge = new Badge(1);
 
-        badge.associerPersonne(personne);
+        badge.associer(personne);
         lecteurDevantOuvrir.simulerDetecBadge(badge);
 
         MoteurOuverture moteur= new MoteurOuverture();
@@ -85,7 +85,7 @@ public class BatimentTest {
 
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
-        badge.associerPersonne(personne);
+        badge.associer(personne);
 
         lecteur1.simulerDetecBadge(badge);
         lecteur2.simulerDetecBadge(badge);
@@ -141,8 +141,8 @@ public class BatimentTest {
         var badge2 = new Badge(2);
 
         Porteur personne = new Porteur("kz","mz");
-        badge1.associerPersonne(personne);
-        badge2.associerPersonne(personne);
+        badge1.associer(personne);
+        badge2.associer(personne);
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
@@ -182,12 +182,34 @@ public class BatimentTest {
 
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
-        badge.associerPersonne(personne);
+        badge.associer(personne);
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
         assertTrue(porte.ouvertureDemande());
 
     }
+
+    @Test //test 11 : 1 badge avec porteur ouvre porte
+    public void casBadgeDissocie() {
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+
+        MoteurOuverture moteur = new MoteurOuverture();
+        moteur.associer(porte, lecteur);
+        badge.associer(personne);
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porte.ouvertureDemande());
+
+        badge.dissocier();
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte.ouvertureDemande());
+
+    }
+
 
 
 
