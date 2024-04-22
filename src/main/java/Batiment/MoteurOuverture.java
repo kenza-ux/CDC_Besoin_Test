@@ -31,7 +31,7 @@ public class MoteurOuverture {
 
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
             var interm = entry.getKey().badgeDétécté();
-            if (interm.getPersonne() != null) {//feature de gestion de blocage selon porteur associé ou pas
+            if (interm!=null && interm.getPersonne() != null ) {//feature de gestion de blocage selon porteur associé ou pas
                 if (interm != null && !badgesBloque.contains(interm)) {
 
                     this.numBadgePasse = interm.getNumSerie();

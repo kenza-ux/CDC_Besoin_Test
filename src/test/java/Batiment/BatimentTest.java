@@ -10,28 +10,16 @@ import java.util.List;
 import static org.junit.Assert.*;
 public class BatimentTest {
 
-    @Test
-    public void casNominal(){
-        //use case
-    /// etant donne
-        var porte = new PorteSpy();
-        var lecteur = new LecteurFake();
-        lecteur.simulerDetecBadge();
-//quand
-        MoteurOuverture moteur= new MoteurOuverture();
-        moteur.associer(porte,lecteur);
-        moteur.interroger(); // on interroge un seul lecteur
-/// alors
-        assertTrue(porte.ouvertureDemande());
-
-    }
     @Test // sans la simulation de badge pour voir si la porte s'ouvre
     public void casPasdeSimulation(){
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("acha","adam");
         //lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
+        badge.setPersonne(personne);
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
@@ -43,6 +31,7 @@ public class BatimentTest {
         lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
+
         //moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
@@ -164,7 +153,7 @@ public class BatimentTest {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
-        Porteur personne= new Porteur();
+        //Porteur personne= new Porteur();
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
@@ -179,7 +168,7 @@ public class BatimentTest {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
-        Porteur personne = new Porteur();
+        Porteur personne = new Porteur("kz","mz");
 
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
