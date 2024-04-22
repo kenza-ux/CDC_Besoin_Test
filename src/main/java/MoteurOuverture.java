@@ -21,7 +21,8 @@ public class MoteurOuverture {
     public void interroger() {
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
             if (entry.getKey().badgeDétécté()) {
-                if(!portesOuvertes.contains(entry.getValue()))
+                if(!portesOuvertes.contains(entry.getValue())&& !badge.estBloque() )
+                    //on rajoute la condition de badge s'il n'est pas bloqué
                     entry.getValue().ouvrir();
                     portesOuvertes.add(entry.getValue());
 
