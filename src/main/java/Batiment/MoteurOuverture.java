@@ -46,6 +46,10 @@ public class MoteurOuverture {
        return this.bloqué=true;
     }
 
+    public boolean débloquerBadge(Badge b){
+        return this.bloqué=false;
+    }
+
 
 
 }

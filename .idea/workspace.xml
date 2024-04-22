@@ -4,22 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Batiment/ILecteur.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Batiment/Utils/LecteurFake.java" afterDir="false" />
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="nouvelle architecture de mon projet avec des packages ajoutés">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FakeBadge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ILecteur.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IPorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/IPorte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LecteurFake.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PorteSpy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/Utils/PorteSpy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ILecteur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ILecteur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/LecteurFake.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +54,7 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeBloque (1)">
+  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeDébloque">
     <configuration name="BatimentTest.cas2Lecteurs1porte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="Batiment.Utils" />
@@ -103,11 +91,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casDeuxPortesDeuxLecteurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casBadgeDébloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
-      <option name="PACKAGE_NAME" value="Batiment.Utils" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.Utils.BatimentTest" />
-      <option name="METHOD_NAME" value="casDeuxPortesDeuxLecteurs" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="casBadgeDébloque" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque (1)" />
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque" />
         <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
-        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713782952393</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="nouvelle architecture de mon projet avec des packages ajoutés">
+      <created>1713788474058</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1713788474060</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,6 +235,7 @@
     <MESSAGE value="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre" />
     <MESSAGE value="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte" />
     <MESSAGE value="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge" />
+    <MESSAGE value="nouvelle architecture de mon projet avec des packages ajoutés" />
+    <option name="LAST_COMMIT_MESSAGE" value="nouvelle architecture de mon projet avec des packages ajoutés" />
   </component>
 </project>
