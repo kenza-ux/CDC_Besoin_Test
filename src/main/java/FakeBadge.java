@@ -1,16 +1,15 @@
-public class FakeBadge implements IBadge{
-    private boolean bloque=false;
+public class FakeBadge {
 
-    public FakeBadge(){
+    private int numSerie=0;
+
+    public FakeBadge(int valueNum){
+        this.numSerie=valueNum;
     }
+    public FakeBadge() {
 
-    @Override
-    public boolean estBloque() {
-        return this.bloque;
     }
-
-    public void setBloque(boolean bloque) {
-        this.bloque = bloque;
+    public int getNumSerie(){
+        return this.numSerie;
     }
 
 

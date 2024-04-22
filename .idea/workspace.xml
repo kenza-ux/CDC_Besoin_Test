@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FakeBadge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FakeBadge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ILecteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ILecteur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LecteurFake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LecteurFake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +89,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casNominal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casPasInterrogation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BatimentTest" />
-      <option name="METHOD_NAME" value="casNominal" />
+      <option name="METHOD_NAME" value="casPasInterrogation" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -97,10 +102,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque" />
-        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
         <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
+        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
-        <item itemvalue="JUnit.BatimentTest.casNominal" />
+        <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
       </list>
     </recent_temporary>
   </component>
@@ -162,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713778657121</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte">
+      <created>1713779054941</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713779054942</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,6 +201,7 @@
     <MESSAGE value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
     <MESSAGE value="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte" />
     <MESSAGE value="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre" />
+    <MESSAGE value="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte" />
   </component>
 </project>

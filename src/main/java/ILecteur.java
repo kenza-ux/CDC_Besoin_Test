@@ -1,4 +1,4 @@
 public interface ILecteur {
 
-    boolean badgeDétécté();
+    FakeBadge badgeDétécté();
 }

@@ -1,23 +1,23 @@
 public class LecteurFake implements ILecteur{
-    private IPorte porte;
-    private boolean badgeDetect=false;
+
+    private FakeBadge badgeDetect=null;
 
     public LecteurFake(){
 
     }
-
-    public void simulerDetecBadge(){
-        this.badgeDetect=true;
+    public void simulerDetecBadge(FakeBadge b ){
+        this.badgeDetect=b;
+    }
+    public void simulerDetecBadge( ){
+        this.badgeDetect=new FakeBadge();
     }
 
     @Override
-    public boolean badgeDétécté() {
-        boolean interm= this.badgeDetect;
-        this.badgeDetect=false;
+    public FakeBadge badgeDétécté() {
+        var interm= this.badgeDetect;
+        this.badgeDetect= new FakeBadge(0);
         return interm;
     }
 
-    public void setPorte(IPorte nouvelle){
-        this.porte=nouvelle;
-    }
+
 }

@@ -101,12 +101,11 @@ public class BatimentTest {
         var lecteur = new LecteurFake();
         var badge = new FakeBadge();
 
-        lecteur.simulerDetecBadge();
+        lecteur.simulerDetecBadge(badge);
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
-        badge.setBloque(true);
-        moteur.setBadge(badge);
+        moteur.bloquerBadge(badge);
 
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());

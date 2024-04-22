@@ -6,8 +6,10 @@ import java.util.Map;
 public class MoteurOuverture {
 
     private Map<ILecteur, IPorte> assosciation = new HashMap();
-    private List<IPorte> portesOuvertes= new ArrayList<>();
-    private IBadge badge;
+    private List<IPorte> portesOuvertes = new ArrayList<>();
+    //private Map<FakeBadge, Boolean> etats_badge;
+    private boolean bloqué = false;
+    private FakeBadge badge;
 
     public MoteurOuverture() {
 
@@ -19,24 +21,28 @@ public class MoteurOuverture {
     }
 
     public void interroger() {
+
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
-            if (entry.getKey().badgeDétécté()) {
-                if(!portesOuvertes.contains(entry.getValue())&& !badge.estBloque() )
-                    //on rajoute la condition de badge s'il n'est pas bloqué
+            badge = entry.getKey().badgeDétécté();
+            if (badge != null && !bloqué) {
+
+                if (!portesOuvertes.contains(entry.getValue()))
+
                     entry.getValue().ouvrir();
-                    portesOuvertes.add(entry.getValue());
+                portesOuvertes.add(entry.getValue());
 
             }//else ça n'ouvre rien
         }
     }
-    public IBadge getBadge() {
+
+    public FakeBadge getBadge() {
         return badge;
     }
 
-    public void setBadge(IBadge badge) {
-        this.badge = badge;
-    }
 
+    public boolean bloquerBadge(FakeBadge b){
+       return this.bloqué=true;
+    }
 
 
 
