@@ -160,22 +160,20 @@ public class BatimentTest {
 
     }
 
-    @Test //test 10 : 1 badge sans porteur n'ouvre pas porte
+    @Test //test 9 : 1 badge sans porteur n'ouvre pas porte NOUVEAU CAS NOMINAL
     public void casBadgeSansPorteur() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
-        //Porteur personne= new Porteur();
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());
-
     }
 
-    @Test //test 11 : 1 badge sans porteur n'ouvre pas porte
+    @Test //test 10 : 1 badge avec porteur ouvre porte
     public void casBadgeAvecPorteur() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
