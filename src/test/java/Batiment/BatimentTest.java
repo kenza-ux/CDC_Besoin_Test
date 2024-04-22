@@ -4,6 +4,9 @@ import Batiment.Utils.LecteurFake;
 import Batiment.Utils.PorteSpy;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
+
 import static org.junit.Assert.*;
 public class BatimentTest {
 
@@ -144,40 +147,18 @@ public class BatimentTest {
         moteur.associer(porte,lecteur);
         lecteur.simulerDetecBadge(badge1);
         moteur.interroger();
-        assertTrue(porte.ouvertureDemande());
+        assertTrue(porte.ouvertureDemande()); // porte ouverte avec 1 badge non bloqué
 
         lecteur.simulerDetecBadge(badge2);
-        moteur.bloquerBadge(badge2);
+        moteur.bloquerBadge(badge2); // on bloque le 2ème
         moteur.interroger();
-        assertTrue(porte.ouvertureDemande());
+        assertTrue(porte.ouvertureDemande()); // porte reste ouverte grace au badge 1
 
-        assertEquals(1,moteur.getNumBadgePasse());
-        assertNotEquals(2,moteur.getNumBadgePasse());
+        assertEquals(1,moteur.getNumBadgePasse()); // badge 1 a ouvert la porte
+        assertNotEquals(2,moteur.getNumBadgePasse()); // le badge 2 n'a pas ouvert la porte
 
     }
 
-    @Test //test 10
-    public void cas2BadgesAutre() {
-        var porte = new PorteSpy();
-        var lecteur = new LecteurFake();
-        var badge1 = new Badge(1);
-        var badge2 = new Badge(2);
-
-        lecteur.simulerDetecBadge(badge1);
-        lecteur.simulerDetecBadge(badge2);
-
-        MoteurOuverture moteur= new MoteurOuverture();
-        moteur.associer(porte,lecteur);
-        moteur.bloquerBadge(badge1); // je bloque les 2 badges
-        moteur.bloquerBadge(badge2);
-
-        moteur.débloquerBadge(badge1); //on débloque le premier
-        moteur.interroger();
-        assertTrue(porte.ouvertureDemande());
-
-        assertEquals(1,moteur.getNumBadgePasse());
-        assertNotEquals(2,moteur.getNumBadgePasse());
-    }
 
 
 

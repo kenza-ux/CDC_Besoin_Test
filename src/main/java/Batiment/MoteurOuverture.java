@@ -9,6 +9,8 @@ public class MoteurOuverture {
 
     private Map<ILecteur, IPorte> assosciation = new HashMap();
     private List<IPorte> portesOuvertes = new ArrayList<>();
+
+
     private List<Badge> badgesBloque= new ArrayList<>();
     //private boolean bloqué = false;
     private int numBadgePasse;
@@ -53,4 +55,7 @@ public class MoteurOuverture {
         return numBadgePasse;
     }
 
+    public List<Badge> getBadgesBloque() {
+        return badgesBloque;
+    }
 }

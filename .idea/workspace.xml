@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 10: 2 badges, on les bloques après simulation, on débloque le 1 et on laisse bloqué le 2, on vérifie bien que celui qui a ouvert la porte c'est le 1">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,11 +71,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.cas2Lecteurs1porte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.cas2BadgesAutre" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
-      <option name="PACKAGE_NAME" value="Batiment.Utils" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.Utils.BatimentTest" />
-      <option name="METHOD_NAME" value="cas2Lecteurs1porte" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="cas2BadgesAutre" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,10 +132,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BatimentTest.cas2Badges" />
+        <item itemvalue="JUnit.BatimentTest.cas2BadgesAutre" />
         <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque (1)" />
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque" />
-        <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
       </list>
     </recent_temporary>
   </component>
@@ -232,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713790303600</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué">
+      <created>1713791429731</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713791429734</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +279,7 @@
     <MESSAGE value="test 8: cas de déblocage du badge juste après son blocage précedant" />
     <MESSAGE value="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte" />
     <MESSAGE value="test 10: 2 badges, on les bloques après simulation, on débloque le 1 et on laisse bloqué le 2, on vérifie bien que celui qui a ouvert la porte c'est le 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 10: 2 badges, on les bloques après simulation, on débloque le 1 et on laisse bloqué le 2, on vérifie bien que celui qui a ouvert la porte c'est le 1" />
+    <MESSAGE value="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué" />
   </component>
 </project>
