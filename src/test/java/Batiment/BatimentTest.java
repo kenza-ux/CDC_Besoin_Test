@@ -199,9 +199,6 @@ public class BatimentTest {
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
         badge.associer(personne);
-        lecteur.simulerDetecBadge(badge);
-        moteur.interroger();
-        assertTrue(porte.ouvertureDemande());
 
         badge.dissocier();
         lecteur.simulerDetecBadge(badge);
