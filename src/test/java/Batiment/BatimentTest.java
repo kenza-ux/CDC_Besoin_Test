@@ -133,6 +133,25 @@ public class BatimentTest {
         assertTrue(porte.ouvertureDemande());
     }
 
+    @Test //test 9
+    public void cas2Badges() {
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge1 = new Badge(1);
+        var badge2 = new Badge(2);
+
+        lecteur.simulerDetecBadge(badge1);
+        lecteur.simulerDetecBadge(badge2);
+
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur);
+        moteur.bloquerBadge(badge1);
+
+        moteur.interroger();
+        assertTrue(porte.ouvertureDemande());
+        assertEquals(2,moteur.getNumBadgePasse());
+        assertNotEquals(1,moteur.getNumBadgePasse());
+    }
 
 
 

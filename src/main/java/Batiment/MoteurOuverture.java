@@ -9,9 +9,9 @@ public class MoteurOuverture {
 
     private Map<ILecteur, IPorte> assosciation = new HashMap();
     private List<IPorte> portesOuvertes = new ArrayList<>();
-    //private Map<FakeBadge, Boolean> etats_badge;
-    private boolean bloqué = false;
-    private Badge badge;
+    private List<Badge> badgesBloque= new ArrayList<>();
+    //private boolean bloqué = false;
+    private int numBadgePasse;
 
     public MoteurOuverture() {
 
@@ -22,12 +22,13 @@ public class MoteurOuverture {
 
     }
 
+
     public void interroger() {
 
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
-            badge = entry.getKey().badgeDétécté();
-            if (badge != null && !bloqué) {
-
+            var interm=entry.getKey().badgeDétécté();
+            if ( interm!= null && !badgesBloque.contains(interm)) {
+                this.numBadgePasse=interm.getNumSerie();
                 if (!portesOuvertes.contains(entry.getValue()))
 
                     entry.getValue().ouvrir();
@@ -37,19 +38,19 @@ public class MoteurOuverture {
         }
     }
 
-    public Badge getBadge() {
-        return badge;
+
+
+
+    public void bloquerBadge(Badge b){
+       badgesBloque.add(b);
     }
 
-
-    public boolean bloquerBadge(Badge b){
-       return this.bloqué=true;
+    public void débloquerBadge(Badge b){
+        badgesBloque.remove(b);
     }
 
-    public boolean débloquerBadge(Badge b){
-        return this.bloqué=false;
+    public int getNumBadgePasse() {
+        return numBadgePasse;
     }
-
-
 
 }
