@@ -19,7 +19,7 @@ public class Badge {
     public Porteur getPersonne() {
         return personne;
     }
-    public void setPersonne(Porteur personne) {
+    public void associerPersonne(Porteur personne) {
         this.personne = personne;
     }
 

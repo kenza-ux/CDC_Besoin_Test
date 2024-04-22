@@ -10,6 +10,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 public class BatimentTest {
 
+    //TEST 1
     @Test // sans la simulation de badge pour voir si la porte s'ouvre
     public void casPasdeSimulation(){
         var porte = new PorteSpy();
@@ -19,11 +20,11 @@ public class BatimentTest {
         //lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
-        badge.setPersonne(personne);
+        badge.associerPersonne(personne);
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
-
+    //2
     @Test
     public void casPasInterrogation(){
         var porte = new PorteSpy();
@@ -31,18 +32,38 @@ public class BatimentTest {
         lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
-
         //moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
 
+    @Test //test 3
+    public void casDeuxPortesDeuxLecteursAvecBadgeConnu(){
+        var porteDevantOuvrir = new PorteSpy();
+        var porteResteFermee = new PorteSpy();
+        var lecteurDevantOuvrir = new LecteurFake();
+        var lecteurResteFermee = new LecteurFake();
+        Porteur personne = new Porteur("acha","adam");
+        var badge = new Badge(1);
+
+        badge.associerPersonne(personne);
+        lecteurDevantOuvrir.simulerDetecBadge(badge);
+
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porteResteFermee,lecteurResteFermee);
+        moteur.associer(porteDevantOuvrir,lecteurDevantOuvrir);
+
+        moteur.interroger();
+        assertTrue(porteDevantOuvrir.ouvertureDemande());
+        assertFalse(porteResteFermee.ouvertureDemande());
+    }
+
     @Test //test 4
-    public void casDeuxPortesDeuxLecteurs(){
+    public void casDeuxPortesDeuxLecteursBadgeNonConnu(){
         var porteDevantOuvrir = new PorteSpy();
         var porteResteFermee = new PorteSpy();
         var lecteurDevantOuvrir = new LecteurFake();
         var lecteurResteFermee = new LecteurFake();
-
+        //le badge dans simuler est par défaut donc non associé à un porteur
         lecteurDevantOuvrir.simulerDetecBadge();
 
         MoteurOuverture moteur= new MoteurOuverture();
@@ -50,27 +71,10 @@ public class BatimentTest {
         moteur.associer(porteDevantOuvrir,lecteurDevantOuvrir);
 
         moteur.interroger();
-        assertTrue(porteDevantOuvrir.ouvertureDemande());
+        assertFalse(porteDevantOuvrir.ouvertureDemande());
         assertFalse(porteResteFermee.ouvertureDemande());
     }
 
-    @Test //test 6
-    public void casDeuxPortesDeuxLecteursInverse(){
-        var porteDevantOuvrir = new PorteSpy();
-        var porteResteFermee = new PorteSpy();
-        var lecteurDevantOuvrir = new LecteurFake();
-        var lecteurResteFermee = new LecteurFake();
-
-        lecteurDevantOuvrir.simulerDetecBadge();
-
-        MoteurOuverture moteur= new MoteurOuverture();
-        moteur.associer(porteDevantOuvrir,lecteurDevantOuvrir);
-        moteur.associer(porteResteFermee,lecteurResteFermee);
-
-        moteur.interroger();
-        assertFalse(porteResteFermee.ouvertureDemande());
-        assertTrue(porteDevantOuvrir.ouvertureDemande());
-    }
 
     @Test //test 5
     public void cas2Lecteurs1porte(){
@@ -172,7 +176,7 @@ public class BatimentTest {
 
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
-        badge.setPersonne(personne);
+        badge.associerPersonne(personne);
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
         assertTrue(porte.ouvertureDemande());
