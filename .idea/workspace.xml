@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 10: badge sans porteur devient non valide">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Batiment/Porteur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
@@ -54,7 +56,7 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.cas2Badges">
+  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeSansPorteur">
     <configuration name="BatimentTest.cas2Badges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
@@ -87,7 +89,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casBadgeBloque (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casBadgeBloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
         <pattern>
@@ -97,16 +99,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="Batiment" />
       <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casBadgeBloque" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BatimentTest.casBadgeBloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDC_Besoin_Test" />
-      <option name="PACKAGE_NAME" value="Batiment.Utils" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.Utils.BatimentTest" />
       <option name="METHOD_NAME" value="casBadgeBloque" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -129,13 +121,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BatimentTest.casBadgeSansPorteur" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="casBadgeSansPorteur" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casBadgeSansPorteur" />
         <item itemvalue="JUnit.BatimentTest.cas2Badges" />
         <item itemvalue="JUnit.BatimentTest.cas2BadgesAutre" />
         <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
         <item itemvalue="JUnit.BatimentTest.casBadgeBloque (1)" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeBloque" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713791429734</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="suppression du test9, pas très pertienent ça cause de l'absence de possibilité de fermeture d'une porte une fois que interroger est passé">
+      <created>1713792968010</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1713792968010</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,6 +295,8 @@
     <MESSAGE value="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte" />
     <MESSAGE value="test 10: 2 badges, on les bloques après simulation, on débloque le 1 et on laisse bloqué le 2, on vérifie bien que celui qui a ouvert la porte c'est le 1" />
     <MESSAGE value="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 9 modifié: on rajoute une interrogation entre chaque simulation pour verifier que la porte reste fermée lorsqu'on passe avec un badge bloqué" />
+    <MESSAGE value="suppression du test9, pas très pertienent ça cause de l'absence de possibilité de fermeture d'une porte une fois que interroger est passé" />
+    <MESSAGE value="test 10: badge sans porteur devient non valide" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 10: badge sans porteur devient non valide" />
   </component>
 </project>

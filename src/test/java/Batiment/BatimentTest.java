@@ -154,12 +154,25 @@ public class BatimentTest {
         moteur.interroger();
         assertTrue(porte.ouvertureDemande()); // porte reste ouverte grace au badge 1
 
-        assertEquals(1,moteur.getNumBadgePasse()); // badge 1 a ouvert la porte
-        assertNotEquals(2,moteur.getNumBadgePasse()); // le badge 2 n'a pas ouvert la porte
+        assertEquals(1,porte.getNbSignals()); // le nbre de signal d'ouverture est tjr 1
+
 
     }
 
+    @Test //test 10 : 1 badge sans porteur n'ouvre pas porte
+    public void casBadgeSansPorteur() {
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne= new Porteur();
 
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur);
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte.ouvertureDemande());
+
+    }
 
 
 
