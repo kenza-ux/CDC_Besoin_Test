@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 2 cas2: où sans simulation de badge de la part du lecteur, la porte ne s'ouvre pas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ILecteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ILecteur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IPorte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IPorte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LecteurFake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LecteurFake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PorteSpy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PorteSpy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" afterDir="false" />
     </list>
@@ -50,7 +45,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.cas2">
+  <component name="RunManager" selected="JUnit.BatimentTest.casPasInterrogation">
     <configuration name="BatimentTest.cas2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
@@ -71,8 +66,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BatimentTest.casPasInterrogation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
+      <option name="METHOD_NAME" value="casPasInterrogation" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
         <item itemvalue="JUnit.BatimentTest.cas2" />
         <item itemvalue="JUnit.BatimentTest.casNominal" />
       </list>

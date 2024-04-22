@@ -17,14 +17,25 @@ public class BatimentTest {
         assertTrue(porte.ouvertureDemande());
 
     }
-    @Test
-    public void cas2(){
+    @Test // sans la simulation de badge pour voir si la porte s'ouvre
+    public void casPasdeSimulation(){
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         //lecteur.simulerDetecBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         moteur.interroger();
+        assertFalse(porte.ouvertureDemande());
+    }
+
+    @Test
+    public void casPasInterrogation(){
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        lecteur.simulerDetecBadge();
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur);
+        //moteur.interroger();
         assertFalse(porte.ouvertureDemande());
     }
 
