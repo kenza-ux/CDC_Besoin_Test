@@ -57,6 +57,27 @@ public class BatimentTest {
         assertFalse(porteResteFermee.ouvertureDemande());
     }
 
+    @Test //test 5
+    public void cas2Lecteurs1porte(){
+        var porte = new PorteSpy();
+
+        var lecteur1 = new LecteurFake();
+        var lecteur2 = new LecteurFake();
+
+        lecteur1.simulerDetecBadge();
+        lecteur2.simulerDetecBadge();
+
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur1);
+        moteur.associer(porte,lecteur2);
+
+        moteur.interroger();
+        assertEquals(1,porte.getNbSignals());
+        assertTrue(porte.ouvertureDemande());
+
+    }
+
+
 
 
 

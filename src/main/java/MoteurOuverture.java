@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MoteurOuverture {
 
     private Map<ILecteur, IPorte> assosciation = new HashMap();
-    //private ;
+    private List<IPorte> portesOuvertes= new ArrayList<>();
 
     public MoteurOuverture() {
 
@@ -18,8 +20,11 @@ public class MoteurOuverture {
     public void interroger() {
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
             if (entry.getKey().badgeDétécté()) {
-                entry.getValue().ouvrir();
-            }
+                if(!portesOuvertes.contains(entry.getValue()))
+                    entry.getValue().ouvrir();
+                    portesOuvertes.add(entry.getValue());
+
+            }//else ça n'ouvre rien
         }
     }
 }
