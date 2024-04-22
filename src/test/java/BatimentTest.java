@@ -95,6 +95,24 @@ public class BatimentTest {
 
     }
 
+    @Test //test 7
+    public void casBadgeBloque() {
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge = new FakeBadge();
+
+        lecteur.simulerDetecBadge();
+
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur);
+        badge.setBloque(true);
+        moteur.setBadge(badge);
+
+        moteur.interroger();
+        assertFalse(porte.ouvertureDemande());
+    }
+
+
 
 
 

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte">
+      <change afterPath="$PROJECT_DIR$/src/main/java/FakeBadge.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/IBadge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +47,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse">
+  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeBloque">
     <configuration name="BatimentTest.cas2Lecteurs1porte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BatimentTest" />
       <option name="METHOD_NAME" value="cas2Lecteurs1porte" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BatimentTest.casBadgeBloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
+      <option name="METHOD_NAME" value="casBadgeBloque" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,23 +98,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casPasdeSimulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDC_Besoin_Test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BatimentTest" />
-      <option name="METHOD_NAME" value="casPasdeSimulation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casBadgeBloque" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
         <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
         <item itemvalue="JUnit.BatimentTest.casNominal" />
-        <item itemvalue="JUnit.BatimentTest.casPasdeSimulation" />
       </list>
     </recent_temporary>
   </component>
@@ -148,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713775252626</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte">
+      <created>1713777410537</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713777410539</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +184,7 @@
     <MESSAGE value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
     <MESSAGE value="test 4: test avec 2 portes 2 lecteurs qui passe" />
     <MESSAGE value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
+    <MESSAGE value="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte" />
   </component>
 </project>

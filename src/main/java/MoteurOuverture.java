@@ -7,6 +7,7 @@ public class MoteurOuverture {
 
     private Map<ILecteur, IPorte> assosciation = new HashMap();
     private List<IPorte> portesOuvertes= new ArrayList<>();
+    private IBadge badge;
 
     public MoteurOuverture() {
 
@@ -27,4 +28,15 @@ public class MoteurOuverture {
             }//else ça n'ouvre rien
         }
     }
+    public IBadge getBadge() {
+        return badge;
+    }
+
+    public void setBadge(IBadge badge) {
+        this.badge = badge;
+    }
+
+
+
+
 }
