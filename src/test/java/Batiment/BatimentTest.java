@@ -1,3 +1,8 @@
+package Batiment;
+
+import Batiment.Utils.LecteurFake;
+import Batiment.Utils.PorteSpy;
+import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
 public class BatimentTest {
@@ -90,7 +95,7 @@ public class BatimentTest {
         moteur.associer(porte,lecteur2);
 
         moteur.interroger();
-        assertEquals(1,porte.getNbSignals());
+        Assert.assertEquals(1,porte.getNbSignals());
         assertTrue(porte.ouvertureDemande());
 
     }
@@ -99,7 +104,7 @@ public class BatimentTest {
     public void casBadgeBloque() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
-        var badge = new FakeBadge();
+        var badge = new Badge();
 
         lecteur.simulerDetecBadge(badge);
 

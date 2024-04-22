@@ -1,4 +1,8 @@
-public class PorteSpy implements IPorte{
+package Batiment.Utils;
+
+import Batiment.IPorte;
+
+public class PorteSpy implements IPorte {
 
     private boolean demandé= false;
     private int nbSignals=0;

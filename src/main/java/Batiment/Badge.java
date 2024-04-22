@@ -1,11 +1,13 @@
-public class FakeBadge {
+package Batiment;
+
+public class Badge {
 
     private int numSerie=0;
 
-    public FakeBadge(int valueNum){
+    public Badge(int valueNum){
         this.numSerie=valueNum;
     }
-    public FakeBadge() {
+    public Badge() {
 
     }
     public int getNumSerie(){

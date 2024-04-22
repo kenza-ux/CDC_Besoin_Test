@@ -1,3 +1,5 @@
+package Batiment;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +11,7 @@ public class MoteurOuverture {
     private List<IPorte> portesOuvertes = new ArrayList<>();
     //private Map<FakeBadge, Boolean> etats_badge;
     private boolean bloqué = false;
-    private FakeBadge badge;
+    private Badge badge;
 
     public MoteurOuverture() {
 
@@ -35,12 +37,12 @@ public class MoteurOuverture {
         }
     }
 
-    public FakeBadge getBadge() {
+    public Badge getBadge() {
         return badge;
     }
 
 
-    public boolean bloquerBadge(FakeBadge b){
+    public boolean bloquerBadge(Badge b){
        return this.bloqué=true;
     }
 
