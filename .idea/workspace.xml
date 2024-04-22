@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 8: cas de déblocage du badge juste après son blocage précedant">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -219,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713788677684</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte">
+      <created>1713789927350</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1713789927351</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,6 +256,7 @@
     <MESSAGE value="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge" />
     <MESSAGE value="nouvelle architecture de mon projet avec des packages ajoutés" />
     <MESSAGE value="test 8: cas de déblocage du badge juste après son blocage précedant" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 8: cas de déblocage du badge juste après son blocage précedant" />
+    <MESSAGE value="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 9 : cas de 2 badges passés sur le meme lecteur l'un après l'autre, sauf que le 1 on l'a bloqué, on vérifie que ce soit bien le 2ème qui ouvre la porte" />
   </component>
 </project>
