@@ -83,8 +83,12 @@ public class BatimentTest {
         var lecteur1 = new LecteurFake();
         var lecteur2 = new LecteurFake();
 
-        lecteur1.simulerDetecBadge();
-        lecteur2.simulerDetecBadge();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+        badge.associerPersonne(personne);
+
+        lecteur1.simulerDetecBadge(badge);
+        lecteur2.simulerDetecBadge(badge);
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur1);

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 1 de cas nominal supprimé car remplacé par notre test nominal est: casBadgeSansporteur &#10;test: casPasdeSimulation adapté à la feature: gère un badge avec porteur">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test inversé de cas 2 portes 2 lecteurs supprimé car on a modifié et ça ressemble énormément au test précedant existant">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -54,7 +53,23 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse">
+  <component name="RunManager" selected="JUnit.BatimentTest.cas2Lecteurs1porte">
+    <configuration name="BatimentTest.cas2Lecteurs1porte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="cas2Lecteurs1porte" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BatimentTest.casDeuxPortesDeuxLecteurs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
@@ -119,29 +134,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casPasdeSimulation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDC_Besoin_Test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Batiment.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Batiment" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casPasdeSimulation" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursBadgeNonConnu" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
         <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
-        <item itemvalue="JUnit.BatimentTest.casPasdeSimulation" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713798108968</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="test inversé de cas 2 portes 2 lecteurs supprimé car on a modifié et ça ressemble énormément au test précedant existant">
+      <created>1713798992103</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1713798992104</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,6 +324,8 @@
     <MESSAGE value="test 10: badge sans porteur devient non valide" />
     <MESSAGE value="test 11: badge avec porteur ouvre bien la porte" />
     <MESSAGE value="test 1 de cas nominal supprimé car remplacé par notre test nominal est: casBadgeSansporteur &#10;test: casPasdeSimulation adapté à la feature: gère un badge avec porteur" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 1 de cas nominal supprimé car remplacé par notre test nominal est: casBadgeSansporteur &#10;test: casPasdeSimulation adapté à la feature: gère un badge avec porteur" />
+    <MESSAGE value="tests avec 2 lecteurs 2 portes modifié avec la feature: badge valide ou pas selon s'il a un porteur associé ou pas pour ouvrir la porte" />
+    <MESSAGE value="test inversé de cas 2 portes 2 lecteurs supprimé car on a modifié et ça ressemble énormément au test précedant existant" />
+    <option name="LAST_COMMIT_MESSAGE" value="test inversé de cas 2 portes 2 lecteurs supprimé car on a modifié et ça ressemble énormément au test précedant existant" />
   </component>
 </project>
