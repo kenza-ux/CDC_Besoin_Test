@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 4: test avec 2 portes 2 lecteurs qui passe">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MoteurOuverture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PorteSpy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PorteSpy.java" afterDir="false" />
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture">
       <change beforePath="$PROJECT_DIR$/src/test/java/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BatimentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MoteurOuverture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PorteSpy.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PorteSpy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/BatimentTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +43,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.cas2Lecteurs1porte">
+  <component name="RunManager" selected="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse">
     <configuration name="BatimentTest.cas2Lecteurs1porte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
@@ -70,21 +64,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casNominal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casDeuxPortesDeuxLecteursInverse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BatimentTest" />
-      <option name="METHOD_NAME" value="casNominal" />
+      <option name="METHOD_NAME" value="casDeuxPortesDeuxLecteursInverse" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casPasInterrogation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casNominal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="BatimentTest" />
-      <option name="METHOD_NAME" value="casPasInterrogation" />
+      <option name="METHOD_NAME" value="casNominal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,11 +96,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteursInverse" />
         <item itemvalue="JUnit.BatimentTest.cas2Lecteurs1porte" />
         <item itemvalue="JUnit.BatimentTest.casDeuxPortesDeuxLecteurs" />
         <item itemvalue="JUnit.BatimentTest.casNominal" />
         <item itemvalue="JUnit.BatimentTest.casPasdeSimulation" />
-        <item itemvalue="JUnit.BatimentTest.casPasInterrogation" />
       </list>
     </recent_temporary>
   </component>
@@ -147,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713773372514</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture">
+      <created>1713775252625</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713775252626</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,6 +172,7 @@
     <MESSAGE value="test 4: 2 portes et 2 lecteurs ne passe pas sans modifs des classes existantes" />
     <MESSAGE value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
     <MESSAGE value="test 4: test avec 2 portes 2 lecteurs qui passe" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 4: test avec 2 portes 2 lecteurs qui passe" />
+    <MESSAGE value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
   </component>
 </project>
