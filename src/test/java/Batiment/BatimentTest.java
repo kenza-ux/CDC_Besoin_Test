@@ -100,7 +100,7 @@ public class BatimentTest {
 
     }
 
-    @Test //test 7
+    @Test //test 6
     public void casBadgeBloque() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
@@ -116,7 +116,7 @@ public class BatimentTest {
         assertFalse(porte.ouvertureDemande());
     }
 
-    @Test //test 8
+    @Test //test 7
     public void casBadgeDébloque() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
@@ -133,12 +133,16 @@ public class BatimentTest {
         assertTrue(porte.ouvertureDemande());
     }
 
-    @Test //test 9
+    @Test //test 8
     public void cas2Badges() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge1 = new Badge(1);
         var badge2 = new Badge(2);
+
+        Porteur personne = new Porteur("kz","mz");
+        badge1.associerPersonne(personne);
+        badge2.associerPersonne(personne);
 
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
