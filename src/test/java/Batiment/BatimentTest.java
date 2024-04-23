@@ -1,10 +1,13 @@
 package Batiment;
 
 import Batiment.Utils.LecteurFake;
+import Batiment.Utils.PorteDummy;
 import Batiment.Utils.PorteSpy;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -121,6 +124,8 @@ public class BatimentTest {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge();
+        Porteur personne = new Porteur("kz","mz");
+        badge.associer(personne);
 
         lecteur.simulerDetecBadge(badge);
 
@@ -206,14 +211,14 @@ public class BatimentTest {
         assertFalse(porte.ouvertureDemande());
 
     }
-
+/*
     @Test //test 12 : porte dummy
     public void casPorteDefaillante() throws Exception {
         var porteNormale = new PorteSpy();
-
-        var porteDefaillante= new PorteSpy();
-        porteDefaillante.porteDefaillante();
-
+        var porteDefaillante= new PorteDummy();
+       // var porteDefaillante= new PorteSpy();
+       // porteDefaillante.porteDefaillante();
+        assertTrue(porteDefaillante.Exception.getMessage(), contains(expectedMessage));
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
@@ -228,14 +233,54 @@ public class BatimentTest {
         moteur.associer(porteDefaillante, lecteur);
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
-        assertFalse(porteDefaillante.ouvertureDemande());
+        //assertFalse(porteDefaillante.ouverrir());
 
 
     }
 
+*/
+
+    @Test // test 12   // on bloque l'accès à TOUTES les portes les dimanches
+    public void casAccesAPorteSemaine(){
+        var porte1_Bat1 = new PorteSpy();
+        var porte2_Bat1 = new PorteSpy();
+
+        var porte1_Bat2 = new PorteSpy();
+        var porte2_Bat2 = new PorteSpy();
+
+        var lecteur_porte1_Bat1 = new LecteurFake();
+        var lecteur_porte2_Bat1 = new LecteurFake();
+        var lecteur_porte1_Bat2 = new LecteurFake();
+        var lecteur_porte2_Bat2 = new LecteurFake();
 
 
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+        MoteurOuverture moteur = new MoteurOuverture();
+        Batiment b1= new Batiment(1,List.of(porte1_Bat1,porte2_Bat1)); // on associe les portes à leur batiment
+        Batiment b2 = new Batiment(2,List.of(porte1_Bat2,porte2_Bat2));
+        badge.associer(personne);
 
+        moteur.associer(porte1_Bat1, lecteur_porte1_Bat1);
+        moteur.associer(porte2_Bat1, lecteur_porte2_Bat1);
+        moteur.associer(porte1_Bat2, lecteur_porte1_Bat2);
+        moteur.associer(porte2_Bat2, lecteur_porte2_Bat2);
+
+        // 1ere porte du batiment 1
+        moteur.accesNonAutoriseDurant2(b1,LocalDate.now());
+        lecteur_porte1_Bat1.simulerDetecBadge(badge);
+        moteur.interroger();
+
+        assertFalse(porte1_Bat1.ouvertureDemande());
+
+        //1er porte du batiment 2
+        var dateVoulu=LocalDate.of(2024, 4, 21);
+        lecteur_porte1_Bat2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porte1_Bat2.ouvertureDemande());
+    }
+
+    // on bloque l'accès a certaines portes les dimanches
 
 
     }

@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 11: on gère le cas de badge appartient à un porteur juste après dissocier de lui et n'ouvre plus la porte">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 12: cas de porte défaillante qui empèche l'ouverture">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Batiment/Batiment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Batiment/Utils/FakeDay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/Batiment/Utils/PorteDummy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
@@ -55,8 +58,8 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casPorteDefaillante">
-    <configuration name="BatimentTest.cas2Badges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.BatimentTest.casBadgeDébloque">
+    <configuration name="BatimentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
         <pattern>
@@ -66,7 +69,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="Batiment" />
       <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="cas2Badges" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BatimentTest.casAccesAPorteSemaine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="casAccesAPorteSemaine" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,7 +122,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BatimentTest.casBadgeSansPorteur" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BatimentTest.casBadgeDébloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
         <pattern>
@@ -114,23 +132,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Batiment" />
       <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casBadgeSansPorteur" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BatimentTest.casPorteDefaillante" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDC_Besoin_Test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Batiment.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Batiment" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casPorteDefaillante" />
+      <option name="METHOD_NAME" value="casBadgeDébloque" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -138,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BatimentTest.casPorteDefaillante" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeDissocie" />
+        <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
+        <item itemvalue="JUnit.BatimentTest" />
         <item itemvalue="JUnit.BatimentTest.casBadgeAvecPorteur" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeSansPorteur" />
-        <item itemvalue="JUnit.BatimentTest.cas2Badges" />
+        <item itemvalue="JUnit.BatimentTest.casBadgeDissocie" />
+        <item itemvalue="JUnit.BatimentTest.casAccesAPorteSemaine" />
       </list>
     </recent_temporary>
   </component>
@@ -323,7 +325,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713801115817</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="test 12: cas de porte défaillante qui empèche l'ouverture">
+      <created>1713861351053</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1713861351054</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -338,7 +347,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test 3: pas d'interrogation de la part du moteur, donc pas d'ouverture" />
     <MESSAGE value="test 4: 2 portes et 2 lecteurs ne passe pas sans modifs des classes existantes" />
     <MESSAGE value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
     <MESSAGE value="test 4: test avec 2 portes 2 lecteurs qui passe" />
@@ -363,6 +371,7 @@
     <MESSAGE value="tous les tests avec la feature 1 badge est invalide sans porteur passent" />
     <MESSAGE value="test 11: on gère le cas de badge appartient à un porteur et ouvre porte, juste après dissocié de lui et n'ouvre plus la porte" />
     <MESSAGE value="test 11: on gère le cas de badge appartient à un porteur juste après dissocier de lui et n'ouvre plus la porte" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 11: on gère le cas de badge appartient à un porteur juste après dissocier de lui et n'ouvre plus la porte" />
+    <MESSAGE value="test 12: cas de porte défaillante qui empèche l'ouverture" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 12: cas de porte défaillante qui empèche l'ouverture" />
   </component>
 </project>
