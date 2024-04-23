@@ -265,7 +265,7 @@ public class BatimentTest {
         lecteur_porte1.simulerDetecBadge(badge);
         moteur.interroger();
 
-        assertFalse(porte1.ouvertureDemande());
+        assertTrue(porte1.ouvertureDemande());
 
 
     }
