@@ -242,42 +242,32 @@ public class BatimentTest {
 
     @Test // test 12   // on bloque l'accès à TOUTES les portes les dimanches
     public void casAccesAPorteSemaine(){
-        var porte1_Bat1 = new PorteSpy();
-        var porte2_Bat1 = new PorteSpy();
+        var porte1 = new PorteSpy();
+        var porte2 = new PorteSpy();
 
-        var porte1_Bat2 = new PorteSpy();
-        var porte2_Bat2 = new PorteSpy();
 
-        var lecteur_porte1_Bat1 = new LecteurFake();
-        var lecteur_porte2_Bat1 = new LecteurFake();
-        var lecteur_porte1_Bat2 = new LecteurFake();
-        var lecteur_porte2_Bat2 = new LecteurFake();
 
+        var lecteur_porte1= new LecteurFake();
+        var lecteur_porte2 = new LecteurFake();
 
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
+
         MoteurOuverture moteur = new MoteurOuverture();
-        Batiment b1= new Batiment(1,List.of(porte1_Bat1,porte2_Bat1)); // on associe les portes à leur batiment
-        Batiment b2 = new Batiment(2,List.of(porte1_Bat2,porte2_Bat2));
         badge.associer(personne);
 
-        moteur.associer(porte1_Bat1, lecteur_porte1_Bat1);
-        moteur.associer(porte2_Bat1, lecteur_porte2_Bat1);
-        moteur.associer(porte1_Bat2, lecteur_porte1_Bat2);
-        moteur.associer(porte2_Bat2, lecteur_porte2_Bat2);
+        moteur.associer(porte1, lecteur_porte1);
+        moteur.associer(porte2, lecteur_porte2);
 
         // 1ere porte du batiment 1
-        moteur.accesNonAutoriseDurant2(b1,LocalDate.now());
-        lecteur_porte1_Bat1.simulerDetecBadge(badge);
+        //moteur.setDateAujourdhui();
+        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21));
+        lecteur_porte1.simulerDetecBadge(badge);
         moteur.interroger();
 
-        assertFalse(porte1_Bat1.ouvertureDemande());
+        assertFalse(porte1.ouvertureDemande());
 
-        //1er porte du batiment 2
-        var dateVoulu=LocalDate.of(2024, 4, 21);
-        lecteur_porte1_Bat2.simulerDetecBadge(badge);
-        moteur.interroger();
-        assertTrue(porte1_Bat2.ouvertureDemande());
+
     }
 
     // on bloque l'accès a certaines portes les dimanches

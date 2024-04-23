@@ -15,9 +15,9 @@ public class MoteurOuverture {
     private List<Badge> badgesBloque= new ArrayList<>();
     private boolean accesAutoris=true;
     private int numBadgePasse;
-    private Map<Batiment, LocalDate> assoBlocage_Bat_Date= new HashMap();
-    private List<Batiment> batimentsBloque= new ArrayList<>();
-   // private Map<Porteur, Badge> assoPort_badge= new HashMap<>();
+    private Map<Porteur, LocalDate> assoBlocage_Porteur_Porte= new HashMap();
+
+    private LocalDate timeMaintenant= LocalDate.now();
 
     public MoteurOuverture() {
 
@@ -28,21 +28,19 @@ public class MoteurOuverture {
 
     }
 
-    public void accesNonAutoriseDurant(Batiment bat, LocalDate date){
-        this.accesAutoris=true;
-        if(date.getDayOfWeek().equals(DayOfWeek.SUNDAY) && batimentsBloque.contains(bat)){
-            this.accesAutoris=false;
-        }
-    }
 
-    public void accesNonAutoriseDurant2(Batiment bat, LocalDate date){
-            if(assoBlocage_Bat_Date.keySet().contains(bat)){
-                assoBlocage_Bat_Date.replace(bat,date);
+
+
+// un porteur qui a déjà une date de blocage se verra modifier par la nouvelle
+    // s'il n'en a pas, alors il prend la nouvelle date
+    public void accesNonAutoriseDurant(Porteur p, LocalDate date){
+            if(assoBlocage_Porteur_Porte.keySet().contains(p)){
+                assoBlocage_Porteur_Porte.replace(p,date);
             }
             else{
-                assoBlocage_Bat_Date.put(bat,date);
+                assoBlocage_Porteur_Porte.put(p,date);
             }
-            System.out.println(assoBlocage_Bat_Date);
+            System.out.println(assoBlocage_Porteur_Porte);
     }
 
     public void interroger() {
@@ -54,9 +52,8 @@ public class MoteurOuverture {
 
                     this.numBadgePasse = interm.getNumSerie(); // recup le num du badge qui est passé
                     var porte= entry.getValue();
-                    var batiment= checkDoorInBatiment(porte);
-                    var blokOK= blocBatimentAccess(batiment);
-                    if (!portesOuvertes.contains(porte) && !blokOK) {
+
+                    if (!portesOuvertes.contains(porte)) {
 
                         porte.ouvrir();
                         portesOuvertes.add(entry.getValue());
@@ -67,24 +64,14 @@ public class MoteurOuverture {
 
     }
 
-    public Batiment checkDoorInBatiment(IPorte porte){
-        for (Batiment batiment : assoBlocage_Bat_Date.keySet()) {
-            if (batiment.getPortes().contains(porte)) {
-                return batiment;
+
+
+    public void blocPorteAccessPorteur(Porteur p,LocalDate date){
+        if(this.timeMaintenant.equals(date)){
+            for (Badge b:p.getBadges()){
+                bloquerBadge(b);
             }
         }
-        return null; // S
-    }
-
-    public boolean blocBatimentAccess(Batiment b){
-        if(assoBlocage_Bat_Date.keySet().contains(b) && b!=null){
-            LocalDate date = assoBlocage_Bat_Date.get(b);
-            if(date.equals(LocalDate.now())){
-                return true;
-            }
-        }
-        return false;
-
     }
 
 
@@ -103,4 +90,9 @@ public class MoteurOuverture {
     public List<Badge> getBadgesBloque() {
         return badgesBloque;
     }
+
+    public void setDateAujourdhui(LocalDate timeMaintenant) {
+        this.timeMaintenant = timeMaintenant;
+    }
+
 }

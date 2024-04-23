@@ -21,6 +21,8 @@ public class Badge {
     }
     public void associer(Porteur personne) {
         this.personne = personne;
+        this.personne.assiocierBadge(this);
+
     }
     public void dissocier(){
         this.personne=null;
