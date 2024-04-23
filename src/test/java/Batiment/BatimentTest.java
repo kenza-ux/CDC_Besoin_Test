@@ -189,7 +189,7 @@ public class BatimentTest {
 
     }
 
-    @Test //test 11 : 1 badge avec porteur ouvre porte
+    @Test //test 11 : 1 badge dissocié de son porteur n'ouvre plus porte
     public void casBadgeDissocie() {
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
@@ -204,6 +204,32 @@ public class BatimentTest {
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
         assertFalse(porte.ouvertureDemande());
+
+    }
+
+    @Test //test 12 : porte dummy
+    public void casPorteDefaillante() throws Exception {
+        var porteNormale = new PorteSpy();
+
+        var porteDefaillante= new PorteSpy();
+        porteDefaillante.porteDefaillante();
+
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+        MoteurOuverture moteur = new MoteurOuverture();
+
+        moteur.associer(porteNormale, lecteur);
+        badge.associer(personne);
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porteNormale.ouvertureDemande());
+
+        moteur.associer(porteDefaillante, lecteur);
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porteDefaillante.ouvertureDemande());
+
 
     }
 

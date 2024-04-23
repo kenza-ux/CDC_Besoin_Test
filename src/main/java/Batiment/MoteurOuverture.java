@@ -23,9 +23,6 @@ public class MoteurOuverture {
 
     }
 
-    public void associerPorteur_Badge(Porteur p, Badge b){
-
-    }
 
     public void interroger() {
 
@@ -35,8 +32,9 @@ public class MoteurOuverture {
                 if (interm != null && !badgesBloque.contains(interm)) {
 
                     this.numBadgePasse = interm.getNumSerie();
-                    if (!portesOuvertes.contains(entry.getValue())) {
-                        entry.getValue().ouvrir();
+                    var porte= entry.getValue();
+                    if (!portesOuvertes.contains(porte)) {
+                        porte.ouvrir();
                         portesOuvertes.add(entry.getValue());
                     }
                 }//else ça n'ouvre rien
