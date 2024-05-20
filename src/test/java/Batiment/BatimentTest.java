@@ -276,5 +276,35 @@ public class BatimentTest {
         assertFalse(porte2.ouvertureDemande());
     }
 
-    // on bloque l'accès a certaines portes un jour
+    //test 13
+    @Test// on bloque l'accès a certaines portes un jour
+    public void casBloquerCertainesPortesJourPrecis(){
+        var porte1 = new PorteSpy();
+        var porte2 = new PorteSpy();
+
+        var lecteur_porte1= new LecteurFake();
+        var lecteur_porte2 = new LecteurFake();
+
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+
+
+        MoteurOuverture moteur = new MoteurOuverture();
+        badge.associer(personne);
+
+        moteur.associer(porte1, lecteur_porte1);
+        moteur.associer(porte2, lecteur_porte2);
+
+        moteur.bloquerPorteAccesPorteurJourPrecis(personne, porte1,LocalDate.now());;
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte1.ouvertureDemande()); // le test n passe pas, porte bloquée pour ce user
+
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porte2.ouvertureDemande());
     }
+
+
+    }
+

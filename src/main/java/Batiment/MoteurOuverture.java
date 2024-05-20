@@ -16,6 +16,7 @@ public class MoteurOuverture {
     private boolean accesAutoris=true;
     private int numBadgePasse;
     private Map<Porteur, LocalDate> assoBlocage_Porteur_Porte= new HashMap();
+    private Map<Porteur, Map<IPorte, LocalDate>> blocage_Porteur_Porte_Date= new HashMap<>();
 
     private LocalDate timeMaintenant= LocalDate.now();
 
@@ -29,9 +30,18 @@ public class MoteurOuverture {
     }
 
 
+    public void bloquerPorteAccesPorteurJourPrecis(Porteur p, IPorte porte, LocalDate jourBlocage) {
 
 
-// un porteur qui a déjà une date de blocage se verra modifier par la nouvelle
+        if (blocage_Porteur_Porte_Date.containsKey(p)) {
+            blocage_Porteur_Porte_Date.replace(p, Map.of(porte, jourBlocage)); // Mettre à jour l'entrée existante
+        } else {
+            blocage_Porteur_Porte_Date.put(p, Map.of(porte, jourBlocage)); // Créer une nouvelle entrée
+        }
+    }
+
+
+    // un porteur qui a déjà une date de blocage se verra modifier par la nouvelle
     // s'il n'en a pas, alors il prend la nouvelle date
     public void accesNonAutoriseDurant(Porteur p, LocalDate date){
             if(assoBlocage_Porteur_Porte.keySet().contains(p)){
@@ -48,12 +58,12 @@ public class MoteurOuverture {
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {
             var interm = entry.getKey().badgeDétécté(); //badge
             if (interm!=null && interm.getPersonne() != null ) {//feature de gestion de blocage selon porteur associé ou pas
-                if (interm!=null && !badgesBloque.contains(interm)) {
+                if (!badgesBloque.contains(interm) ) {
 
                     this.numBadgePasse = interm.getNumSerie(); // recup le num du badge qui est passé
                     var porte= entry.getValue();
 
-                    if (!portesOuvertes.contains(porte)) {
+                    if (!portesOuvertes.contains(porte) && !isBloque(interm.getPersonne(), porte, timeMaintenant)) {
 
                         porte.ouvrir();
                         portesOuvertes.add(entry.getValue());
@@ -64,8 +74,6 @@ public class MoteurOuverture {
 
     }
 
-
-
     public void blocPorteAccessPorteur(Porteur p,LocalDate date){
         if(this.timeMaintenant.equals(date)){
             for (Badge b:p.getBadges()){
@@ -73,7 +81,6 @@ public class MoteurOuverture {
             }
         }
     }
-
 
     public void bloquerBadge(Badge b){
        badgesBloque.add(b);
@@ -90,6 +97,16 @@ public class MoteurOuverture {
     public List<Badge> getBadgesBloque() {
         return badgesBloque;
     }
+
+    private boolean isBloque(Porteur p, IPorte porte, LocalDate dateJour) {
+        if (blocage_Porteur_Porte_Date.containsKey(p)) {
+            Map<IPorte, LocalDate> blocagesPorteDate = blocage_Porteur_Porte_Date.get(p);
+            return blocagesPorteDate.containsKey(porte) && blocagesPorteDate.get(porte).equals(dateJour);
+        } else {
+            return false;
+        }
+    }
+
 
     public void setDateAujourdhui(LocalDate timeMaintenant) {
         this.timeMaintenant = timeMaintenant;
