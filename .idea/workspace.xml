@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 12: on bloque l'accès à certains batiments sur un certain jour">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Badge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/MoteurOuverture.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Batiment/Porteur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Batiment/Porteur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,8 +136,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.BatimentTest.casAccesAPorteSemaine" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
         <item itemvalue="JUnit.BatimentTest" />
+        <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
         <item itemvalue="JUnit.BatimentTest.casBadgeAvecPorteur" />
         <item itemvalue="JUnit.BatimentTest.casBadgeDissocie" />
       </list>
@@ -337,7 +334,21 @@
       <option name="project" value="LOCAL" />
       <updated>1713880972177</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)">
+      <created>1713883955188</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1713883955189</updated>
+    </task>
+    <task id="LOCAL-00028" summary="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)">
+      <created>1713883983444</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1713883983444</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -352,7 +363,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="classe Moteur modifiée avec la prise en compte d'une map de lecteur et porte associés" />
     <MESSAGE value="test 4: test avec 2 portes 2 lecteurs qui passe" />
     <MESSAGE value="test 5: 2 lecteurs reliés à la meme porte, avec modification de la méthode interroger dans Moteur pour ne prendre qu'un seul signal d'ouverture" />
     <MESSAGE value="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte" />
@@ -377,6 +387,7 @@
     <MESSAGE value="test 11: on gère le cas de badge appartient à un porteur juste après dissocier de lui et n'ouvre plus la porte" />
     <MESSAGE value="test 12: cas de porte défaillante qui empèche l'ouverture" />
     <MESSAGE value="test 12: on bloque l'accès à certains batiments sur un certain jour" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 12: on bloque l'accès à certains batiments sur un certain jour" />
+    <MESSAGE value="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)" />
   </component>
 </project>

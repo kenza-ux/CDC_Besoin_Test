@@ -240,12 +240,10 @@ public class BatimentTest {
 
 */
 
-    @Test // test 12   // on bloque l'accès à TOUTES les portes les dimanches
+    @Test // test 12   // on bloque l'accès à TOUTES les portes un jour
     public void casAccesAPorteSemaine(){
         var porte1 = new PorteSpy();
         var porte2 = new PorteSpy();
-
-
 
         var lecteur_porte1= new LecteurFake();
         var lecteur_porte2 = new LecteurFake();
@@ -259,18 +257,24 @@ public class BatimentTest {
         moteur.associer(porte1, lecteur_porte1);
         moteur.associer(porte2, lecteur_porte2);
 
-        // 1ere porte du batiment 1
-        //moteur.setDateAujourdhui();
-        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21));
+        // 1ere porte du batiment 1 //LocalDate.of(2024,04,21)
+        /* le bloc à décom si on veut que le test soit assertFalse car date blocage et aujrd c'est la meme
+        moteur.setDateAujourdhui(LocalDate.now());  // le jour où je veux acceder
+        moteur.blocPorteAccessPorteur(personne,LocalDate.now());
+        */
+         
+        moteur.setDateAujourdhui(LocalDate.of(2024,04,21));  // le jour où je veux acceder
+        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21)); // le jour où je veux bloquer l'accès aux badgesS de ce porteur
         lecteur_porte1.simulerDetecBadge(badge);
         moteur.interroger();
 
-        assertTrue(porte1.ouvertureDemande());
+        //assertTrue(porte1.ouvertureDemande()); // porte ouverte test passe car quand la date aujourd'hui et de bloc porteur diff
+        assertFalse(porte1.ouvertureDemande()); // ne passe pas car les 2 dates pareil
 
-
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte2.ouvertureDemande());
     }
 
-    // on bloque l'accès a certaines portes les dimanches
-
-
+    // on bloque l'accès a certaines portes un jour
     }
