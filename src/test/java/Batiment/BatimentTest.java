@@ -325,6 +325,48 @@ public class BatimentTest {
     }
     
     
+    @Test //test 14 bloque l access a une personne durant une periode de temps
+    public void casAccesNonAutoriserToutePorteIntervaleTemp(){
+    	//Etant donnée qu une personne avec un badge
+        var porte1 = new PorteSpy();
+        var porte2 = new PorteSpy();
+        var lecteur_porte1= new LecteurFake();
+        var lecteur_porte2 = new LecteurFake();
+
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+
+        MoteurOuverture moteur = new MoteurOuverture();
+        
+        badge.associer(personne);
+        //ET  une porte ou plusieur porte du battiment
+        moteur.associer(porte1, lecteur_porte1);
+        moteur.associer(porte2, lecteur_porte2);
+        moteur.setDateAujourdhui(LocalDate.of(2024,04,21));
+        //ET cette personne et bloquée pendant le 21/04 jusqu'au 25/04
+        moteur.blocAccessDurant(personne,LocalDate.of(2024,04,21),LocalDate.of(2024, 04, 25));
+       //SI il essaie d acceder a des porte de battiment
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        //alors il n'a pas access a tout les portes du battiment
+        assertFalse(porte1.ouvertureDemande());
+        moteur.setDateAujourdhui(LocalDate.of(2024,04,23));
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte1.ouvertureDemande());
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte2.ouvertureDemande());
+        //ET SI la date du jour n'est pas entre le 21/04 et le 25/04
+        moteur.setDateAujourdhui(LocalDate.of(2024,05,23));
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        //ALORS il a acces a toute les portes du batiment
+        assertTrue(porte1.ouvertureDemande());
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porte2.ouvertureDemande());
+    }
     
     
     
