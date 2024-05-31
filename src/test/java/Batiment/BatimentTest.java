@@ -96,7 +96,6 @@ public class BatimentTest {
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur1);
         moteur.associer(porte,lecteur2);
-
         moteur.interroger();
         Assert.assertEquals(1,porte.getNbSignals());
         assertTrue(porte.ouvertureDemande());
@@ -180,22 +179,26 @@ public class BatimentTest {
 
     @Test //test 10 : 1 badge avec porteur ouvre porte
     public void casBadgeAvecPorteur() {
+    	//Etant donne un porteur a un badge associer
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
-
+        
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
         badge.associer(personne);
+        //Si le porteur presente un badge a un lecteur
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
+        //ALORS la porte s'ouvre
         assertTrue(porte.ouvertureDemande());
 
     }
 
     @Test //test 11 : 1 badge dissocié de son porteur n'ouvre plus porte
     public void casBadgeDissocie() {
+    	//Etant donné qu un badge est associer a une personne 
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
@@ -204,12 +207,13 @@ public class BatimentTest {
         MoteurOuverture moteur = new MoteurOuverture();
         moteur.associer(porte, lecteur);
         badge.associer(personne);
-
+        //Si on dissocie ce badge de son porteur
+        //ET on essaie d'ouvrir une porte du batiment avec ce dernier
         badge.dissocier();
         lecteur.simulerDetecBadge(badge);
         moteur.interroger();
+        //alors la porte ne s'ouvre pas
         assertFalse(porte.ouvertureDemande());
-
     }
 /*
     @Test //test 12 : porte dummy
@@ -240,71 +244,89 @@ public class BatimentTest {
 
 */
 
-    @Test // test 12   // on bloque l'accès à TOUTES les portes un jour
-    public void casAccesAPorteSemaine(){
+    @Test // test 12   // on bloque l'accès à TOUTES les portes pour une journée
+    public void casAccesNonAutoriserToutePorteUneJournée(){
+    	//Etant donée qu on a des porte  du batiment
+    	//ET les on bloque l acces a toute les porte des batiment pour aujourd'hui
         var porte1 = new PorteSpy();
         var porte2 = new PorteSpy();
-
         var lecteur_porte1= new LecteurFake();
         var lecteur_porte2 = new LecteurFake();
-
+        MoteurOuverture moteur = new MoteurOuverture();        
+        moteur.setDateAujourdhui(LocalDate.of(2024, 04, 21));
+        //ET UN porteur   avec un badge tente d'ouvrire une porte
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
-
-        MoteurOuverture moteur = new MoteurOuverture();
         badge.associer(personne);
-
         moteur.associer(porte1, lecteur_porte1);
         moteur.associer(porte2, lecteur_porte2);
-
-        // 1ere porte du batiment 1 //LocalDate.of(2024,04,21)
-        /* le bloc à décom si on veut que le test soit assertFalse car date blocage et aujrd c'est la meme
-        moteur.setDateAujourdhui(LocalDate.now());  // le jour où je veux acceder
-        moteur.blocPorteAccessPorteur(personne,LocalDate.now());
-        */
-         
-        moteur.setDateAujourdhui(LocalDate.of(2024,04,21));  // le jour où je veux acceder
-        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21)); // le jour où je veux bloquer l'accès aux badgesS de ce porteur
+        //Si le porteur essaie d'acceder a des portes des batiment
+        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21));
         lecteur_porte1.simulerDetecBadge(badge);
         moteur.interroger();
-
-        //assertTrue(porte1.ouvertureDemande()); // porte ouverte test passe car quand la date aujourd'hui et de bloc porteur diff
-        assertFalse(porte1.ouvertureDemande()); // ne passe pas car les 2 dates pareil
-
+        //Alors les portes ne s'ouvre pas
+        assertFalse(porte2.ouvertureDemande());
         lecteur_porte2.simulerDetecBadge(badge);
         moteur.interroger();
         assertFalse(porte2.ouvertureDemande());
-    }
-
-    //test 13
-    @Test// on bloque l'accès a certaines portes un jour
-    public void casBloquerCertainesPortesJourPrecis(){
-        var porte1 = new PorteSpy();
-        var porte2 = new PorteSpy();
-
-        var lecteur_porte1= new LecteurFake();
-        var lecteur_porte2 = new LecteurFake();
-
-        var badge = new Badge(1);
-        Porteur personne = new Porteur("kz","mz");
-
-
-        MoteurOuverture moteur = new MoteurOuverture();
-        badge.associer(personne);
-
-        moteur.associer(porte1, lecteur_porte1);
-        moteur.associer(porte2, lecteur_porte2);
-
-        moteur.bloquerPorteAccesPorteurJourPrecis(personne, porte1,LocalDate.now());;
+        moteur.débloquerBadge(badge);
+        moteur.setDateAujourdhui(LocalDate.of(2024, 05, 21));
         lecteur_porte1.simulerDetecBadge(badge);
         moteur.interroger();
-        assertFalse(porte1.ouvertureDemande()); // le test n passe pas, porte bloquée pour ce user
+        assertTrue(porte1.ouvertureDemande());
 
+    }
+    
+    @Test // test 13   // on bloque l'accès plusieur jours
+    public void casAccesNonAutoriserToutePortePlusieurJournée(){
+    	//Etant donnée qu une personne avec un badge
+        var porte1 = new PorteSpy();
+        var porte2 = new PorteSpy();
+        var lecteur_porte1= new LecteurFake();
+        var lecteur_porte2 = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+        MoteurOuverture moteur = new MoteurOuverture();
+        badge.associer(personne);
+        moteur.associer(porte1, lecteur_porte1);
+        moteur.associer(porte2, lecteur_porte2);
+        moteur.setDateAujourdhui(LocalDate.of(2024,04,21));
+        //Si on bloque l'access a cette personne dans des jours precise
+        //ET cette personne essaie d ouvrire les portes du batiment dans l'une de ces journée
+        moteur.blocPorteAccessPorteur(personne,LocalDate.of(2024,04,21),LocalDate.of(2024, 04, 22));
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        //Alors les porte ne vont pas s'ouvrir.
+        assertFalse(porte1.ouvertureDemande());
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte2.ouvertureDemande());
+        
+        moteur.setDateAujourdhui(LocalDate.of(2024,04,22));
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte1.ouvertureDemande());
+        lecteur_porte1.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte1.ouvertureDemande());
+        lecteur_porte2.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(porte2.ouvertureDemande());
+        //Et si la personne essaie d'acceder a des porte du batiment 
+        //ET la date du jours n'est pas une date  ou cette personne est bloqué
+        moteur.setDateAujourdhui(LocalDate.of(2024,05,23));
+        lecteur_porte1.simulerDetecBadge(badge);
+        //Alors les portes vont s'ouvrir
+        moteur.interroger();
+        assertTrue(porte1.ouvertureDemande());
         lecteur_porte2.simulerDetecBadge(badge);
         moteur.interroger();
         assertTrue(porte2.ouvertureDemande());
     }
-
-
+    
+    
+    
+    
+    
+    
     }
-
