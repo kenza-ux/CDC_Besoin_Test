@@ -82,7 +82,6 @@ public class BatimentTest {
     @Test //test 5
     public void cas2Lecteurs1porte(){
         var porte = new PorteSpy();
-
         var lecteur1 = new LecteurFake();
         var lecteur2 = new LecteurFake();
 
@@ -104,6 +103,7 @@ public class BatimentTest {
 
     @Test //test 6
     public void casBadgeBloque() {
+    	//Etant donnée un badge bloqué
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge();
@@ -113,13 +113,15 @@ public class BatimentTest {
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         moteur.bloquerBadge(badge);
-
+        //si on essaie d'ouvrir une porte avec ce badge
         moteur.interroger();
+        //la porte ne s'ouvre pas
         assertFalse(porte.ouvertureDemande());
     }
 
     @Test //test 7
     public void casBadgeDébloque() {
+    	//Etant donnée un badge qui est bloqué
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge();
@@ -131,9 +133,11 @@ public class BatimentTest {
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         moteur.bloquerBadge(badge);
+        //ET qu'on debloque ce badge
         moteur.débloquerBadge(badge);
 
         moteur.interroger();
+        //alors la porte s'ouvre
         assertTrue(porte.ouvertureDemande());
     }
 
@@ -166,6 +170,7 @@ public class BatimentTest {
 
     @Test //test 9 : 1 badge sans porteur n'ouvre pas porte NOUVEAU CAS NOMINAL
     public void casBadgeSansPorteur() {
+    	//Etant donné un badge qui na pas de porteur
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
@@ -173,7 +178,9 @@ public class BatimentTest {
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         lecteur.simulerDetecBadge(badge);
+        //SI en essaie d'ouvrir la porte avec ce  dernier
         moteur.interroger();
+        //La porte ne s'ouvre pas
         assertFalse(porte.ouvertureDemande());
     }
 
@@ -367,6 +374,7 @@ public class BatimentTest {
         moteur.interroger();
         assertTrue(porte2.ouvertureDemande());
     }
+    
     
     
     
