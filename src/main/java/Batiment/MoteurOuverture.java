@@ -22,6 +22,8 @@ public class MoteurOuverture {
     private Map<Porteur, LocalDate> assoBlocage_Porteur_Porte= new HashMap();
     private Map<Porteur,List<LocalDate>> assoPorteurDateBloc = new HashMap(); 
     private Map<Porteur, Map<IPorte, LocalDate>> blocage_Porteur_Porte_Date= new HashMap<>();
+    private Map<Badge,Integer> badgePresentéSansPorteur = new HashMap();
+    private boolean alarm=false;
     private LocalDate timeMaintenant= LocalDate.now(
     		);
 
@@ -50,7 +52,8 @@ public class MoteurOuverture {
 
     public void interroger() {
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {	
-            Badge interm = entry.getKey().badgeDétécté(); //badge
+        	
+            Badge interm = entry.getKey().badgeDétécté();
             //on debloque la personne si il figure dans la list des personne bloque pour une date et on est pas dans cette derniere 
           if(interm!=null)  debloquerPersonneSiDateBlocageDifferente(interm);
             if (interm!=null && interm.getPersonne() != null ) {//feature de gestion de blocage selon porteur associé ou pas
@@ -65,6 +68,18 @@ public class MoteurOuverture {
                         portesOuvertes.add(entry.getValue());
                     }
                 }//else ça n'ouvre rien
+            }     else {
+            	Integer nombreFoisBadgeSansPorteurPresenté = badgePresentéSansPorteur.get(interm);
+            	if(nombreFoisBadgeSansPorteurPresenté==null) {
+            		badgePresentéSansPorteur.put(interm, new Integer(0));
+            		 nombreFoisBadgeSansPorteurPresenté = 0;
+            	}
+            	nombreFoisBadgeSansPorteurPresenté=new Integer(nombreFoisBadgeSansPorteurPresenté.intValue()+1);
+            	badgePresentéSansPorteur.replace(interm, nombreFoisBadgeSansPorteurPresenté);
+            	// Vérifier si la valeur est supérieure ou égale à 3
+            	if (nombreFoisBadgeSansPorteurPresenté >= 3) {
+            	    this.alarm = true;
+            	}
             }
         }
     }
@@ -151,6 +166,10 @@ public class MoteurOuverture {
         } else {
             return false;
         }
+    }
+    
+    public boolean isAlarm() {
+    	return this.alarm;
     }
 
     public void débloquerBadge(Badge b){

@@ -407,7 +407,7 @@ public class BatimentTest {
     }
     
     
-    @Test //test 14
+    @Test //test 16
     public void casPorteDefaillante() throws Exception {
         //Etant Donnée qu'une porte est dafaillante
     	//ET une porte non Defaillante
@@ -445,7 +445,29 @@ public class BatimentTest {
     }
     
     
-    
+    	@Test //test17
+  		public void declecherAlarm() {
+    	//Etant donné un badge qui na pas de porteur
+        var porte = new PorteSpy();
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        MoteurOuverture moteur= new MoteurOuverture();
+        moteur.associer(porte,lecteur);
+        lecteur.simulerDetecBadge(badge);
+        //SI en essaie d'ouvrir la porte avec ce  dernier
+        //Et Si on refait la tentative 2 autre fois
+        moteur.interroger();
+        assertFalse(moteur.isAlarm());
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertFalse(moteur.isAlarm());
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        //Alors la porte ne s'ouvre pas
+        assertFalse(porte.ouvertureDemande());
+        //ET une Alarm sera declanché
+        assertTrue(moteur.isAlarm());
+    }
     
     
     

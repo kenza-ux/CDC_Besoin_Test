@@ -20,7 +20,7 @@ public class LecteurFake implements ILecteur {
     @Override
     public Badge badgeDétécté() {
         var interm= this.badgeDetect;
-        this.badgeDetect= new Badge(0);
+        //this.badgeDetect= new Badge(0);
         return interm;
     }
 

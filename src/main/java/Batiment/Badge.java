@@ -27,6 +27,12 @@ public class Badge {
     public void dissocier(){
         this.personne=null;
     }
+	@Override
+	public String toString() {
+		return "Badge [ numSerie=" + numSerie + "]";
+	}
 
+    
+    
 
 }
