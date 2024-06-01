@@ -54,12 +54,12 @@ public class MoteurOuverture {
             //on debloque la personne si il figure dans la list des personne bloque pour une date et on est pas dans cette derniere 
           if(interm!=null)  debloquerPersonneSiDateBlocageDifferente(interm);
             if (interm!=null && interm.getPersonne() != null ) {//feature de gestion de blocage selon porteur associé ou pas
-                if (interm!=null && !badgesBloque.contains(interm)) {
+                if (!badgesBloque.contains(interm)) {
 
                     this.numBadgePasse = interm.getNumSerie(); // recup le num du badge qui est passé
                     var porte= entry.getValue();
 
-                    if (!portesOuvertes.contains(porte)) {
+                    if (!portesOuvertes.contains(porte) && !isBloque(interm.getPersonne(), porte, timeMaintenant)) {
 
                         porte.ouvrir();
                         portesOuvertes.add(entry.getValue());
@@ -141,6 +141,15 @@ public class MoteurOuverture {
             blocage_Porteur_Porte_Date.replace(p, Map.of(porte, jourBlocage)); // Mettre à jour l'entrée existante
         } else {
             blocage_Porteur_Porte_Date.put(p, Map.of(porte, jourBlocage)); // Créer une nouvelle entrée
+        }
+    }
+    
+    private boolean isBloque(Porteur p, IPorte porte, LocalDate dateJour) {
+        if (blocage_Porteur_Porte_Date.containsKey(p)) {
+            Map<IPorte, LocalDate> blocagesPorteDate = blocage_Porteur_Porte_Date.get(p);
+            return blocagesPorteDate.containsKey(porte) && blocagesPorteDate.get(porte).equals(dateJour);
+        } else {
+            return false;
         }
     }
 

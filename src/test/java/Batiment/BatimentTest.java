@@ -407,6 +407,43 @@ public class BatimentTest {
     }
     
     
+    @Test //test 14
+    public void casPorteDefaillante() throws Exception {
+        //Etant Donnée qu'une porte est dafaillante
+    	//ET une porte non Defaillante
+    	//ET un badge qui ouvre les deux porte
+        var porteNormale = new PorteSpy();
+
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("Dupont", "Jean");
+        MoteurOuverture moteur = new MoteurOuverture();
+        moteur.associer(porteNormale, lecteur);
+        badge.associer(personne);
+        lecteur.simulerDetecBadge(badge);
+        //QUAND on essaie d'acceder a la porte non defaillante
+        moteur.interroger();
+        //alors la porte s'ouvre
+        assertTrue(porteNormale.ouvertureDemande()); // La porte normale s'ouvre
+
+       //ET si on essaie d'acceder a la porte defaillante
+        try{
+
+            var porteDefaillante = new PorteDummy();
+            moteur.associer(porteDefaillante, lecteur);
+
+            lecteur.simulerDetecBadge(badge);
+            moteur.interroger();
+            assertFalse(porteDefaillante.isOuverte());
+            //ALORS aucun signale n'est envoyé au moteur 
+            } catch (Exception e) {
+                assertEquals("cette porte est défaillante", e.getMessage());
+
+            }
+
+
+    }
+    
     
     
     

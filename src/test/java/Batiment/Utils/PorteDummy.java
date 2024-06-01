@@ -12,4 +12,9 @@ public class PorteDummy implements IPorte {
         //throw new Exception();
         return false;
     }
+
+
+    public boolean isOuverte() {
+        return false; // La porte est toujours fermée
+    }
 }
