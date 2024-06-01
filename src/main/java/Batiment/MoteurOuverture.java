@@ -18,11 +18,10 @@ public class MoteurOuverture {
     private Map<ILecteur, IPorte> assosciation = new HashMap();
     private List<IPorte> portesOuvertes = new ArrayList<>();
     private List<Badge> badgesBloque= new ArrayList<>();
-    private boolean accesAutoris=true;
     private int numBadgePasse;
     private Map<Porteur, LocalDate> assoBlocage_Porteur_Porte= new HashMap();
     private Map<Porteur,List<LocalDate>> assoPorteurDateBloc = new HashMap(); 
-    private boolean blocPermanent = false;
+    private Map<Porteur, Map<IPorte, LocalDate>> blocage_Porteur_Porte_Date= new HashMap<>();
     private LocalDate timeMaintenant= LocalDate.now(
     		);
 
@@ -133,6 +132,16 @@ public class MoteurOuverture {
     		}
     	else this.assoPorteurDateBloc.put(porteur,dates);
        badgesBloque.add(b);
+    }
+    
+    public void bloquerPorteAccesPorteurJourPrecis(Porteur p, IPorte porte, LocalDate jourBlocage) {
+
+
+        if (blocage_Porteur_Porte_Date.containsKey(p)) {
+            blocage_Porteur_Porte_Date.replace(p, Map.of(porte, jourBlocage)); // Mettre à jour l'entrée existante
+        } else {
+            blocage_Porteur_Porte_Date.put(p, Map.of(porte, jourBlocage)); // Créer une nouvelle entrée
+        }
     }
 
     public void débloquerBadge(Badge b){

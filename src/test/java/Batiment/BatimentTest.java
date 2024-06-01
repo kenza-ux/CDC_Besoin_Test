@@ -375,6 +375,37 @@ public class BatimentTest {
         assertTrue(porte2.ouvertureDemande());
     }
     
+    @Test//15  on bloque l'accès a certaines portes un jour
+    public void casBloquerCertainesPortesPourUnePeronneJourPrecis(){
+    	//ETANT donnée qu on a deux porte
+    	//Et une personne avec un badge qui ouvre ces deux porte
+        var porte1 = new PorteSpy();
+        var porte2 = new PorteSpy();
+
+        var lecteur_porte1= new LecteurFake();
+        var lecteur_porte2 = new LecteurFake();
+
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("kz","mz");
+
+        MoteurOuverture moteur = new MoteurOuverture();
+        badge.associer(personne);
+
+        moteur.associer(porte1, lecteur_porte1);
+        moteur.associer(porte2, lecteur_porte2);
+        //Quand on bloque l'access a une personne pour la premiere porte
+        moteur.bloquerPorteAccesPorteurJourPrecis(personne, porte1,LocalDate.now());
+        lecteur_porte1.simulerDetecBadge(badge);
+        //alors la premiere porte ne souvre pas
+        moteur.interroger();
+        assertFalse(porte1.ouvertureDemande()); // le test n passe pas, porte bloquée pour ce user
+
+        lecteur_porte2.simulerDetecBadge(badge);
+        //Et la deuxieme s'ouvre
+        moteur.interroger();
+        assertTrue(porte2.ouvertureDemande());
+    }
+    
     
     
     
