@@ -468,6 +468,57 @@ public class BatimentTest {
         //ET une Alarm sera declanché
         assertTrue(moteur.isAlarm());
     }
+    	
+    	//2 personnes avec une porte bloquée affiliée sur un jour précis, mais ont accès à la porte de l'autre
+    	public void testAccesBloqueJourPrecisDifferentesPersonnes() {
+            // Création des objets
+            var porteBloqueAlice = new PorteSpy();
+            var lecteur1 = new LecteurFake();
+            var badgeAlice = new Badge(1);
+            var alice = new Porteur("Alice", "Durant");
+            var moteur = new MoteurOuverture();
+
+            var porteBloqueBob = new PorteSpy();
+            var lecteur2 = new LecteurFake();
+            var bob = new Porteur("Bob", "Martin");
+            Badge badgeBob = new Badge(2);
+
+            // Association des éléments Alice
+            moteur.associer(porteBloqueAlice, lecteur1);
+            badgeAlice.associer(alice);
+
+
+            // Blocage dee l'accès pour Alice aujourd'hui et donc ne peut pas y accéder
+            moteur.bloquerPorteAccesPorteurJourPrecis(alice, porteBloqueAlice, LocalDate.now());
+            lecteur1.simulerDetecBadge(badgeAlice);
+            moteur.interroger();
+            assertFalse(porteBloqueAlice.ouvertureDemande()); // La porte ne s'ouvre pas
+
+            // Association des éléments Bob
+            moteur.associer(porteBloqueBob, lecteur2);
+            badgeBob.associer(bob);
+
+            // Blocage de l'accès pour Bob 01/04/2024 et donc ne peut pas y accéder ce jour là
+            //moteur.setDateAujourdhui(LocalDate.of(2024, 4, 1));
+            moteur.bloquerPorteAccesPorteurJourPrecis(bob, porteBloqueBob, LocalDate.now());
+            lecteur2.simulerDetecBadge(badgeBob);
+            moteur.interroger();
+            assertFalse(porteBloqueBob.ouvertureDemande()); // La porte ne s'ouvre pas pour bob
+
+            //alice essaye d'acceder à la porte 2
+            lecteur2.simulerDetecBadge(badgeAlice);
+            moteur.interroger();
+            assertTrue(porteBloqueBob.ouvertureDemande()); // L'autre porte s'ouvre pour Alice
+
+            //bob essaye d'acceder à la porte 1
+            lecteur1.simulerDetecBadge(badgeBob);
+            moteur.interroger();
+            assertTrue(porteBloqueAlice.ouvertureDemande()); // L'autre porte s'ouvre pour bob
+
+
+
+        }
+
     
     
     
