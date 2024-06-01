@@ -309,7 +309,7 @@ public class BatimentTest {
     public void casPorteDefaillante() throws Exception {
         // Création des objets nécessaires
         var porteNormale = new PorteSpy();
-        var porteDefaillante = new PorteDummy();
+
         var lecteur = new LecteurFake();
         var badge = new Badge(1);
         Porteur personne = new Porteur("Dupont", "Jean");
@@ -324,15 +324,23 @@ public class BatimentTest {
         moteur.interroger();
         assertTrue(porteNormale.ouvertureDemande()); // La porte normale s'ouvre
 
-        // Association de la porte défaillante
-        moteur.associer(porteDefaillante, lecteur);
+        //Test avec la porte défaillante
+        try{
 
-        // Test avec la porte défaillante
-        lecteur.simulerDetecBadge(badge);
-        moteur.interroger();
+            var porteDefaillante = new PorteDummy();
+            // Association de la porte défaillante
+            moteur.associer(porteDefaillante, lecteur);
 
-        // Vérification que la porte défaillante n'a pas tenté de s'ouvrir
-        assertFalse(porteDefaillante.isOuverte());
+            // Test avec la porte défaillante
+            lecteur.simulerDetecBadge(badge);
+            moteur.interroger();
+            assertFalse(porteDefaillante.isOuverte());
+
+            } catch (Exception e) {
+                assertEquals("cette porte est défaillante", e.getMessage());
+
+            }
+
 
     }
 

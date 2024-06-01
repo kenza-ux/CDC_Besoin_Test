@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 13: cas bloquer pour certaines personnes , certaines portes pour un jour précis">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 14: une porte dummy qui ne s'ouvre pas et lève une exception">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/Utils/PorteDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/Utils/PorteDummy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -363,7 +362,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716213237436</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="test 14: une porte dummy qui ne s'ouvre pas et lève une exception">
+      <created>1717258271520</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1717258271521</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -378,7 +384,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test 6: 2 portes 2 lecteurs inversé lors de l'associatione et interrogation de la porte" />
     <MESSAGE value="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre" />
     <MESSAGE value="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte" />
     <MESSAGE value="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge" />
@@ -403,6 +408,7 @@
     <MESSAGE value="test 12: bloquer l'accès à tt les portes pour une personne (tous ses badges)" />
     <MESSAGE value="test 12: enrichir bloquer l'accès à tt les portes pour une personne (tous ses badges)" />
     <MESSAGE value="test 13: cas bloquer pour certaines personnes , certaines portes pour un jour précis" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 13: cas bloquer pour certaines personnes , certaines portes pour un jour précis" />
+    <MESSAGE value="test 14: une porte dummy qui ne s'ouvre pas et lève une exception" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 14: une porte dummy qui ne s'ouvre pas et lève une exception" />
   </component>
 </project>
