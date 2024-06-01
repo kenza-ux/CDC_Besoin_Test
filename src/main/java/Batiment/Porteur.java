@@ -13,7 +13,7 @@ public class Porteur {
         this.nom=nom;
         this.prenom=prenom;
     }
-    public void assiocierBadge(Badge b){
+    public void attribuerBadge(Badge b){
         this.badges.add(b);
     }
 

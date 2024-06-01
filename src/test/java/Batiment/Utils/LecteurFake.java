@@ -10,10 +10,10 @@ public class LecteurFake implements ILecteur {
     public LecteurFake(){
 
     }
-    public void simulerDetecBadge(Badge b ){
+    public void simulerDetectionBadge(Badge b ){
         this.badgeDetect=b;
     }
-    public void simulerDetecBadge( ){
+    public void simulerDetectionBadge( ){
         this.badgeDetect=new Badge();
     }
 

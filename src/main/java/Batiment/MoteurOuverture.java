@@ -37,19 +37,6 @@ public class MoteurOuverture {
     }
 
 
-
-
-// un porteur qui a déjà une date de blocage se verra modifier par la nouvelle
-    // s'il n'en a pas, alors il prend la nouvelle date
-    public void accesNonAutoriseDurant(Porteur p, LocalDate date){
-            if(assoBlocage_Porteur_Porte.keySet().contains(p)){
-                assoBlocage_Porteur_Porte.replace(p,date);
-            }
-            else{
-                assoBlocage_Porteur_Porte.put(p,date);
-            }
-    }
-
     public void interroger() {
         for (Map.Entry<ILecteur, IPorte> entry : assosciation.entrySet()) {	
         	
