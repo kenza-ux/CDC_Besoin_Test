@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 14: une porte dummy qui ne s'ouvre pas et lève une exception">
+    <list default="true" id="6f91b89d-3963-4097-b0bb-c9003fa07105" name="Changes" comment="test 15: 2 porteur: alice et bob, chacun une porte bloquée leur est affiliée, sur un jour précis, mais accèdent à la porte de l'autre">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Batiment/BatimentTest.java" afterDir="false" />
     </list>
@@ -53,7 +53,7 @@
       <recent name="Batiment" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BatimentTest.casPorteDefaillante">
+  <component name="RunManager" selected="JUnit.BatimentTest.testAccesBloqueJourPrecisDifferentesPersonnes">
     <configuration name="BatimentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="CDC_Besoin_Test" />
       <extension name="coverage">
@@ -80,22 +80,6 @@
       <option name="PACKAGE_NAME" value="Batiment" />
       <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
       <option name="METHOD_NAME" value="casAccesAPorteSemaine" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BatimentTest.casBadgeDébloque" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="CDC_Besoin_Test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Batiment.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Batiment" />
-      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
-      <option name="METHOD_NAME" value="casBadgeDébloque" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -133,13 +117,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BatimentTest.testAccesBloqueJourPrecisDifferentesPersonnes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="CDC_Besoin_Test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Batiment.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Batiment" />
+      <option name="MAIN_CLASS_NAME" value="Batiment.BatimentTest" />
+      <option name="METHOD_NAME" value="testAccesBloqueJourPrecisDifferentesPersonnes" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.BatimentTest.testAccesBloqueJourPrecisDifferentesPersonnes" />
+        <item itemvalue="JUnit.BatimentTest.casBloquerCertainesPortesJourPrecis" />
+        <item itemvalue="JUnit.BatimentTest.casAccesAPorteSemaine" />
         <item itemvalue="JUnit.BatimentTest.casPorteDefaillante" />
         <item itemvalue="JUnit.BatimentTest" />
-        <item itemvalue="JUnit.BatimentTest.casAccesAPorteSemaine" />
-        <item itemvalue="JUnit.BatimentTest.casBloquerCertainesPortesJourPrecis" />
-        <item itemvalue="JUnit.BatimentTest.casBadgeDébloque" />
       </list>
     </recent_temporary>
   </component>
@@ -369,7 +369,14 @@
       <option name="project" value="LOCAL" />
       <updated>1717258271521</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="test 14: une porte dummy qui ne s'ouvre pas et lève une exception, avec test qui passe catch de l'exception">
+      <created>1717258977152</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1717258977152</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -384,8 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test 7: badge bloque sans modification des méthodes afin d'accepter ce nouveau paramètre" />
-    <MESSAGE value="test 7: badge bloque avec modification de la méthode interroger dans Moteur afin qu'elle n'ouvre pas la porte" />
     <MESSAGE value="test 7: bloquer badge avec les modifs: &#10;IBadge qui saute, un moteur peut bloquer le badge, lecteur peut prend badge lors de simulation de badge, badge détécté renvoie une instance de badge" />
     <MESSAGE value="nouvelle architecture de mon projet avec des packages ajoutés" />
     <MESSAGE value="test 8: cas de déblocage du badge juste après son blocage précedant" />
@@ -409,6 +414,8 @@
     <MESSAGE value="test 12: enrichir bloquer l'accès à tt les portes pour une personne (tous ses badges)" />
     <MESSAGE value="test 13: cas bloquer pour certaines personnes , certaines portes pour un jour précis" />
     <MESSAGE value="test 14: une porte dummy qui ne s'ouvre pas et lève une exception" />
-    <option name="LAST_COMMIT_MESSAGE" value="test 14: une porte dummy qui ne s'ouvre pas et lève une exception" />
+    <MESSAGE value="test 14: une porte dummy qui ne s'ouvre pas et lève une exception, avec test qui passe catch de l'exception" />
+    <MESSAGE value="test 15: 2 porteur: alice et bob, chacun une porte bloquée leur est affiliée, sur un jour précis, mais accèdent à la porte de l'autre" />
+    <option name="LAST_COMMIT_MESSAGE" value="test 15: 2 porteur: alice et bob, chacun une porte bloquée leur est affiliée, sur un jour précis, mais accèdent à la porte de l'autre" />
   </component>
 </project>
