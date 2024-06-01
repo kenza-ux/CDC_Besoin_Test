@@ -218,7 +218,7 @@ public class BatimentTest {
 
     }
 
-    @Test //test 11 : 1 badge dissocié de son porteur n'ouvre plus porte
+    @Test //test 11 : 1 badge liberer de son porteur n'ouvre plus porte
     public void casBadgeDissocie() {
     	
     	//Etant une porte relier a un lecteur et un  badge est attribué a une personne 
@@ -231,7 +231,7 @@ public class BatimentTest {
         moteur.associer(porte, lecteur);
         badge.attribuer(personne);
         //Si on dissocie ce badge de son porteur
-        badge.dissocier();
+        badge.liberer();
         //ET on essaie d'ouvrir une porte du batiment avec ce dernier
         lecteur.simulerDetectionBadge(badge);
         moteur.interroger();

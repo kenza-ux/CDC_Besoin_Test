@@ -24,7 +24,7 @@ public class Badge {
         this.personne.attribuerBadge(this);
 
     }
-    public void dissocier(){
+    public void liberer(){
         this.personne=null;
     }
 	@Override
