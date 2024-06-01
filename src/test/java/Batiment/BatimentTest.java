@@ -5,6 +5,7 @@ import Batiment.Utils.PorteDummy;
 import Batiment.Utils.PorteSpy;
 import org.junit.Assert;
 import org.junit.Test;
+import java.lang.String;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -288,7 +289,6 @@ public class BatimentTest {
         var badge = new Badge(1);
         Porteur personne = new Porteur("kz","mz");
 
-
         MoteurOuverture moteur = new MoteurOuverture();
         badge.associer(personne);
 
@@ -304,6 +304,38 @@ public class BatimentTest {
         moteur.interroger();
         assertTrue(porte2.ouvertureDemande());
     }
+
+    @Test //test 14
+    public void casPorteDefaillante() throws Exception {
+        // Création des objets nécessaires
+        var porteNormale = new PorteSpy();
+        var porteDefaillante = new PorteDummy();
+        var lecteur = new LecteurFake();
+        var badge = new Badge(1);
+        Porteur personne = new Porteur("Dupont", "Jean");
+        MoteurOuverture moteur = new MoteurOuverture();
+
+        // Association des éléments
+        moteur.associer(porteNormale, lecteur);
+        badge.associer(personne);
+
+        // Test avec une porte normale
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+        assertTrue(porteNormale.ouvertureDemande()); // La porte normale s'ouvre
+
+        // Association de la porte défaillante
+        moteur.associer(porteDefaillante, lecteur);
+
+        // Test avec la porte défaillante
+        lecteur.simulerDetecBadge(badge);
+        moteur.interroger();
+
+        // Vérification que la porte défaillante n'a pas tenté de s'ouvrir
+        assertFalse(porteDefaillante.isOuverte());
+
+    }
+
 
 
     }
