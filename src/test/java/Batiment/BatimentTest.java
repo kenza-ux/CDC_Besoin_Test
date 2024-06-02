@@ -35,35 +35,38 @@ public class BatimentTest {
     public void casPasInterrogation(){
     	// ETANT DONNE une Porte relier a un lecteur
     	//Et un badge est presenté a ce lecteur
-    	//ET il ya pas d'interogation effectuer par le moteur d'ouverture
         var porte = new PorteSpy();
         var lecteur = new LecteurFake();
-        lecteur.simulerDetectionBadge();
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
-       //Alors aucun signal D'ouverture n'est envoyé a la porte
+        //quand il ya pas d'interogation effectuée par le moteur d'ouverture, juste simulation de badge
+        lecteur.simulerDetectionBadge();
+       //Alors aucun signal D'ouverture n'est envoyé a la porte et reste fermée
         assertFalse(porte.ouvertureDemande());
     }
 
     @Test //test 3
     public void casDeuxPortesDeuxLecteursAvecBadgeConnu(){
-    	// ETANT DONNE deux Porte relier a deux  lecteur
-    	//Et un  badge qui peut ouvrir ces deux porte est presenté a une seul porte
+    	// ETANT DONNE deux Portes reliées a deux  lecteur successivement
+    	//Et un  badge qui peut ouvrir ces deux porte est presenté a une seule porte
         var porteDevantOuvrir = new PorteSpy();
         var porteResteFermee = new PorteSpy();
         var lecteurDevantOuvrir = new LecteurFake();
         var lecteurResteFermee = new LecteurFake();
+        
         Porteur personne = new Porteur("acha","adam");
         var badge = new Badge(1);
-        
         badge.attribuer(personne);
-        lecteurDevantOuvrir.simulerDetectionBadge(badge);
+        
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porteResteFermee,lecteurResteFermee);
         moteur.associer(porteDevantOuvrir,lecteurDevantOuvrir);
-        //alors un signal d'ouverture est envoyé seulement a la porte devant s'ouvrir
+        //quand j'essaie d'ouvrir la porte devant s'ouvrir
+        lecteurDevantOuvrir.simulerDetectionBadge(badge);       
         moteur.interroger();
+        //alors un signal d'ouverture est envoyé seulement a la porte devant s'ouvrir
         assertTrue(porteDevantOuvrir.ouvertureDemande());
+        //et l'autre reste fermée
         assertFalse(porteResteFermee.ouvertureDemande());
     }
 
@@ -75,36 +78,47 @@ public class BatimentTest {
         var porte2 = new PorteSpy();
         var lecteur1 = new LecteurFake();
         var lecteur2 = new LecteurFake();
-        //le badge dans simuler est par défaut donc non associé à un porteur
-        lecteur1.simulerDetectionBadge();
-        lecteur2.simulerDetectionBadge();
+
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte1,lecteur1);
         moteur.associer(porte2,lecteur2);
         
+        //Et aucun badge attribué à aucun porteur
+        //le badge dans simuler est par défaut donc non associé à un porteur
+        //quand j'essaie d'ouvrir la porte 1
+        lecteur1.simulerDetectionBadge();
         moteur.interroger();
+        //alors elle reste fermée
         assertFalse(porte1.ouvertureDemande());
+
+        //quand j'essaie d'ouvrir porte 2
+        lecteur2.simulerDetectionBadge();
+        moteur.interroger();
+        //alors elle reste fermée aussi
         assertFalse(porte2.ouvertureDemande());
     }
 
 
     @Test //test 5
     public void cas2Lecteurs1porte(){
-    	//Etant donné une porte reliée a un lecteur
+    	//Etant donné une porte reliée a 2 lecteurs
     	//Et un badge qui peut ouvrir 
         var porte = new PorteSpy();
         var lecteur1 = new LecteurFake();
         var lecteur2 = new LecteurFake();
-
         var badge = new Badge(1);
+        
         Porteur personne = new Porteur("kz","mz");
         badge.attribuer(personne);  
-        lecteur1.simulerDetectionBadge(badge);
-        lecteur2.simulerDetectionBadge(badge);
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur1);
         moteur.associer(porte,lecteur2);
+        // si je simule les 2 lecteurs de la meme porte
+        lecteur1.simulerDetectionBadge(badge);
+        lecteur2.simulerDetectionBadge(badge);
+        //et je demande l'ouverture
         moteur.interroger();
+        // ALORS un seul signal de demande d'ouverture sera accepté et la porrte s'ouvre
         Assert.assertEquals(1,porte.getNbSignals());
         assertTrue(porte.ouvertureDemande());
 
@@ -118,13 +132,12 @@ public class BatimentTest {
         var lecteur = new LecteurFake();
         var badge = new Badge();
 
-        lecteur.simulerDetectionBadge(badge);
-
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         //SI ce badge est bloqué
         moteur.bloquerBadge(badge);
         //Quand le moteur interoge
+        lecteur.simulerDetectionBadge(badge);
         moteur.interroger();
         //Alors Aucun signal n'est envoyé 
         assertFalse(porte.ouvertureDemande());
@@ -141,14 +154,14 @@ public class BatimentTest {
         Porteur personne = new Porteur("kz","mz");
         badge.attribuer(personne);
 
-        lecteur.simulerDetectionBadge(badge);
-
         MoteurOuverture moteur= new MoteurOuverture();
         moteur.associer(porte,lecteur);
         moteur.bloquerBadge(badge);
-        //Qaund on debloque ce badge
+        
+        //Qaund on debloque ce badge et j'essaie d'ouvrir la porte
         moteur.débloquerBadge(badge);
-
+        
+        lecteur.simulerDetectionBadge(badge);
         moteur.interroger();
         //alors la porte s'ouvre
         assertTrue(porte.ouvertureDemande());
@@ -181,7 +194,7 @@ public class BatimentTest {
 
     }
 
-    @Test //test 9 : 1 badge sans porteur n'ouvre pas porte NOUVEAU CAS NOMINAL
+    @Test //test 9 : 1 badge sans porteur n'ouvre pas porte 
     public void casBadgeSansPorteur() {
     	//Etant donné une porte Et  un badge  qui na pas de porteur
         var porte = new PorteSpy();
@@ -388,16 +401,17 @@ public class BatimentTest {
 
         moteur.associer(porte1, lecteur_porte1);
         moteur.associer(porte2, lecteur_porte2);
-        //Quand on bloque l'access a une personne pour la premiere porte
+        //Quand on bloque l'access a une personne pour la premiere porte aujourd'hui
         moteur.bloquerPorteAccesPorteurJourPrecis(personne, porte1,LocalDate.now());
-        lecteur_porte1.simulerDetectionBadge(badge);
-        //alors la premiere porte ne souvre pas
+        lecteur_porte1.simulerDetectionBadge(badge); 
         moteur.interroger();
+        //alors la premiere porte ne souvre pas
         assertFalse(porte1.ouvertureDemande()); // le test n passe pas, porte bloquée pour ce user
 
+        //quand j'essaie d'ouvrir la porte 2 le meme jour
         lecteur_porte2.simulerDetectionBadge(badge);
-        //Et la deuxieme s'ouvre
         moteur.interroger();
+        //ALORS elle s'ouvre
         assertTrue(porte2.ouvertureDemande());
     }
     
